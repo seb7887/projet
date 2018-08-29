@@ -1,0 +1,12 @@
+{
+  "name": "apiprojet",
+  "version": "1.0.0",
+  "description": "Projet API",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "node server.js"
+  },
+  "author": "Sebastian Segura",
+  "license": "ISC"
+}
