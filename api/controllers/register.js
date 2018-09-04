@@ -12,7 +12,7 @@ const handleRegister = async (req, res, next) => {
       hash: hash,
     });
 
-    return res.status(200).json(user[0]);
+    return res.status(200).json(user);
   } catch(err) {
     if (err.code === 11000) {
       err.message = 'The username and/or email is taken';

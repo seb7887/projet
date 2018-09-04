@@ -1,9 +1,14 @@
+// TODO: dotenv
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const morgan = require('morgan');
 
 const errorHandler = require('./controllers/error');
+const db = require('./models');
+
+const authRoutes = require('./routes/auth');
 
 const app = express();
 
@@ -11,6 +16,10 @@ app.use(morgan('combined'));
 app.use(cors());
 app.use(bodyParser.json());
 
+// Routes
+app.use('/api/auth', authRoutes);
+
+// Error handling
 app.use((req, res, next) => {
   const err = new Error('Not Found');
   err.status = 404;
