@@ -9,11 +9,13 @@ const projectSchema = new mongoose.Schema({
   idea: {
     type: String,
     required: true,
-    maxLength: 500,
+    maxLength: 800,
   },
-  techs: [{
-    type: String
-  }]
+  keyFunctions: {
+    type: String,
+    required: true,
+    maxLength: 800
+  }
 });
 
 const Project = mongoose.model('Project', projectSchema);
