@@ -15,6 +15,10 @@ const projectSchema = new mongoose.Schema({
     type: String,
     required: true,
     maxLength: 800
+  },
+  keywords: {
+    type: [String],
+    unique: true,
   }
 });
 
