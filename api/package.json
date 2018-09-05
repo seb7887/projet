@@ -4,8 +4,8 @@
   "description": "Projet API",
   "main": "server.js",
   "scripts": {
-    "test": "mocha --timeout 1000 --exit",
-    "coverage": "nyc --reporter=html --reporter=text mocha --timeout 1000 --exit",
+    "test": "mocha --timeout 3000 --exit",
+    "coverage": "nyc --reporter=html --reporter=text mocha --timeout 3000 --exit",
     "start": "PORT=8081 nodemon server.js",
     "precommit": "pretty-quick --staged"
   },
@@ -17,6 +17,7 @@
     "cors": "^2.8.4",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
+    "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.2.10",
     "morgan": "^1.9.0",
     "redis": "^2.8.0"
