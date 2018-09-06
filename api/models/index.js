@@ -8,4 +8,4 @@ mongoose.connect(process.env.DB || 'mongodb://localhost/projet', {
 });
 
 module.exports.User = require('./users');
-//module.exports.Project = require('./project');
+module.exports.Project = require('./project');

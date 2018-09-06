@@ -9,6 +9,7 @@ const errorHandler = require('./controllers/error');
 const db = require('./models');
 
 const authRoutes = require('./routes/auth');
+const projectRoutes = require('./routes/project');
 
 const app = express();
 
@@ -18,6 +19,7 @@ app.use(bodyParser.json());
 
 // Routes
 app.use('/api/auth', authRoutes);
+app.use('/api/projects', projectRoutes);
 
 // Error handling
 app.use((req, res, next) => {
