@@ -14,7 +14,7 @@ const handleSignIn = async (req, res, next) => {
     });
     const isValid = bcrypt.compareSync(password, user.hash);
     if (isValid) {
-      const jwtPayload = { email };
+      const jwtPayload = { id: user._id };
       const token = jwt.sign(jwtPayload, process.env.SECRET_KEY || 'jwtsecret', { expiresIn: '2 days' });
       return res.status(200).json({ user, token });
     }

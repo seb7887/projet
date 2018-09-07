@@ -16,7 +16,8 @@ const createProject = async (req, res, next) => {
       name: name,
       idea: idea,
       features: features,
-      keywords: keywords.split(',')
+      keywords: keywords.split(','),
+      user: req.params.user_id,
     });
     return res.status(200).json(project);
   } catch (err) {
@@ -27,8 +28,11 @@ const createProject = async (req, res, next) => {
 const deleteProject = async (req, res, next) => {
   try {
     const projectToDelete = await db.Project.findById(req.params.project_id);
-    await projectToDelete.remove();
-    return res.status(200).json(projectToDelete); 
+    if (projectToDelete.user == req.params.user_id) {
+      await projectToDelete.remove();
+      return res.status(200).json(projectToDelete); 
+    }
+    return next({ status: 400, message: 'Unauthorized'});
   } catch (err) {
     return next({ status: 400, message: 'Cannot delete project' });
   }
