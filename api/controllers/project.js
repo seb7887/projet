@@ -32,7 +32,7 @@ const deleteProject = async (req, res, next) => {
       await projectToDelete.remove();
       return res.status(200).json(projectToDelete); 
     }
-    return next({ status: 400, message: 'Unauthorized'});
+    return next({ status: 401, message: 'Unauthorized'});
   } catch (err) {
     return next({ status: 400, message: 'Cannot delete project' });
   }
