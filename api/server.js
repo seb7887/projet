@@ -13,7 +13,11 @@ const projectRoutes = require('./routes/project');
 
 const app = express();
 
-app.use(morgan('combined'));
+const env = process.env.NODE_ENV;
+
+if (env === 'production') {
+  app.use(morgan('combined'));
+}
 app.use(cors());
 app.use(bodyParser.json());
 
