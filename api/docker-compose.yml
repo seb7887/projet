@@ -1,0 +1,27 @@
+version: '3.6'
+
+services:
+  api:
+    # Backend API
+    container_name: api
+    restart: always
+    build: ./
+    command: npm start
+    working_dir: /usr/src/api
+    environment:
+      DB: mongodb://mongo:27017/projet
+    links:
+      - mongo
+    ports:
+      - "8081:8081"
+    volumes:
+      - ./:/usr/src/api
+
+  mongo:
+    # MongoDB
+    container_name: mongo
+    image: mongo
+    volumes:
+      - ./data:/data/db
+    ports:
+      - "27017:27017"

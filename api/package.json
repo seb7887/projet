@@ -4,9 +4,34 @@
   "description": "Projet API",
   "main": "server.js",
   "scripts": {
-    "test": "mocha",
-    "start": "node server.js"
+    "test": "NODE_ENV=test mocha --timeout 3000 --exit",
+    "coverage": "NODE_ENV=test nyc --reporter=html --reporter=text mocha --timeout 3000 --exit",
+    "debug": "NODE_ENV=debug PORT=8081 nodemon server.js",
+    "start": "NODE_ENV=production node server.js",
+    "precommit": "pretty-quick --staged"
   },
   "author": "Sebastian Segura",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.3",
+    "compression": "^1.7.3",
+    "cors": "^2.8.4",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "helmet": "^3.13.0",
+    "jsonwebtoken": "^8.3.0",
+    "mongoose": "^5.2.10",
+    "morgan": "^1.9.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "istanbul": "^0.4.5",
+    "mocha": "^5.2.0",
+    "nodemon": "^1.18.4",
+    "nyc": "^13.0.1",
+    "prettier": "^1.14.2",
+    "pretty-quick": "^1.6.0",
+    "supertest": "^3.1.0"
+  }
 }
