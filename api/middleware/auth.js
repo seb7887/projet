@@ -1,9 +1,11 @@
 const jwt = require('jsonwebtoken');
 
+const config = require('../libs/config');
+
 const requireAuth = (req, res, next) => {
   try {
     const token = req.headers.authorization.split(' ')[1];
-  jwt.verify(token, process.env.SECRET_KEY || 'jwtsecret', (err, decoded) => {
+  jwt.verify(token, config.jwtSecret, (err, decoded) => {
     if (decoded) {
       next();
     } else {
@@ -18,7 +20,7 @@ const requireAuth = (req, res, next) => {
 const checkProjectOwner = (req, res, next) => {
   try {
     const token = req.headers.authorization.split(' ')[1];
-    jwt.verify(token, process.env.SECRET_KEY || 'jwtsecret', (err, decoded) => {
+    jwt.verify(token, config.jwtSecret, (err, decoded) => {
       if (decoded && (decoded.id === req.params.user_id)) {
         return next();
       } else {

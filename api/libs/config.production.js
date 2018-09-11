@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const config = {
   db: process.env.DB,
   debug: false,

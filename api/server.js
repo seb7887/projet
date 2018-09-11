@@ -4,6 +4,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const morgan = require('morgan');
+const compression = require('compression');
+const helmet = require('helmet');
 
 const errorHandler = require('./controllers/error');
 const db = require('./models');
@@ -15,10 +17,13 @@ const app = express();
 
 const env = process.env.NODE_ENV;
 
-if (env === 'production') {
+if (env !== 'test') {
   app.use(morgan('combined'));
 }
+
+app.use(helmet());
 app.use(cors());
+app.use(compression());
 app.use(bodyParser.json());
 
 // Routes

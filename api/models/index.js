@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
+const config = require('../libs/config');
 
 // TODO: set prod + dev
-mongoose.set('debug', true);
+mongoose.set('debug', config.debug);
 mongoose.Promise = Promise;
-mongoose.connect(process.env.DB || 'mongodb://localhost/projet', {
+mongoose.connect(config.db, {
   keepAlive: true,
 });
 

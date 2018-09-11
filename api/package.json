@@ -4,9 +4,10 @@
   "description": "Projet API",
   "main": "server.js",
   "scripts": {
-    "test": "mocha --timeout 3000 --exit",
-    "coverage": "nyc --reporter=html --reporter=text mocha --timeout 3000 --exit",
-    "start": "PORT=8081 nodemon server.js",
+    "test": "NODE_ENV=test mocha --timeout 3000 --exit",
+    "coverage": "NODE_ENV=test nyc --reporter=html --reporter=text mocha --timeout 3000 --exit",
+    "debug": "NODE_ENV=debug PORT=8081 nodemon server.js",
+    "start": "NODE_ENV=production node server.js",
     "precommit": "pretty-quick --staged"
   },
   "author": "Sebastian Segura",
@@ -14,9 +15,11 @@
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.3",
+    "compression": "^1.7.3",
     "cors": "^2.8.4",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
+    "helmet": "^3.13.0",
     "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.2.10",
     "morgan": "^1.9.0"
