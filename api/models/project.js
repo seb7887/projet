@@ -9,11 +9,21 @@ const projectSchema = new mongoose.Schema({
   idea: {
     type: String,
     required: true,
-    maxLength: 500,
+    maxLength: 800,
   },
-  techs: [{
-    type: String
-  }]
+  features: {
+    type: String,
+    required: true,
+    maxLength: 800
+  },
+  keywords: {
+    type: [String],
+    required: true,
+  },
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+  }
 });
 
 const Project = mongoose.model('Project', projectSchema);
