@@ -1,5 +1,136 @@
+@font-face {
+  font-display: swap;
+  font-family: 'Futura BT';
+  font-style: normal;
+  font-weight: normal;
+  src: local('futura_bt'), url('./font/futura_bt.ttf') format('truetype');
+}
+
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Futura BT', sans-serif;
+  background: linear-gradient(to left, #000000 0%, #252527 100%);
+  color: #fdfcfb;
 }
+
+.main-page {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  padding: 1rem;
+  text-align: center;
+}
+
+.main-page__bar {
+  width: 20rem;
+  height: 12rem;
+  padding: 1rem;
+  background-color: #1a1515;
+  box-shadow: 0 1rem 2rem rgba(0,0,0,.8);
+  border: 2px solid black;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 5rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5rem;
+  background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.btn {
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  padding: 1.5rem 4rem;
+  font-size: 2rem;
+  position: relative;
+  display: inline-block;
+  background-color: #000000;
+  color: #fdfcfb;
+  transition: all .7s;
+}
+
+.btn:hover {
+  cursor: pointer;
+  background-color: #1f1f20e8;
+}
+
+.btn--small {  
+  height: 4rem;
+  width: 11rem;
+  text-transform: uppercase;
+  font-size: 2rem;
+  background-color: #000000;
+  border: none;
+  border-radius: 8px;
+  color: #fdfcfb;
+  transition: all .7s;
+}
+
+.btn--small:hover {
+  cursor: pointer;
+  background-color: #1f1f20e8;
+}
+
+.auth-page {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  width: 50%;  
+}
+
+.auth-page .title {
+  text-align: center;
+}
+
+.auth-page h2 {
+  text-align: center;
+}
+
+.auth-page .btn--small {
+  transform: translateX(15rem);
+}
+
+.form {
+  padding: .5rem;
+}
+
+.form__input {
+  font-size: 1.5rem;
+  padding: 1.5rem 2rem;
+  background-color: #fdfcfb;
+  border: none;
+  border-radius: 2px;
+  width: 90%;
+  display: block;
+  transition: all .3s;
+}
+
+.form__input:placeholder-shown + .form__label {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4rem);
+}
+
+.form__input:focus {
+  outline: none;
+  box-shadow: 0 1rem 2rem rgba(0,0,0,.9);
+}
+
+.form__label {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-left: 2rem;
+  margin-top: .7rem;
+  display: block;
+  transition: all .3s;
+}
+
+

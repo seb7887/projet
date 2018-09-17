@@ -1,0 +1,191 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer component expect to render Footer component 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Footer />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <p>
+        Built by Sebastian Matias Segura. Copyright ©2018 by 
+        <a
+                href="https://github.com/seb7887"
+                style={
+                        Object {
+                                "color": "#fdfcfb",
+                                "cursor": "pointer",
+                                "fontWeight": "bold",
+                                "textDecorationLine": "none",
+                              }
+                }
+        >
+                seb7887
+        </a>
+</p>,
+      "style": Object {
+        "borderTop": "1px solid #00000",
+        "paddingTop": "2rem",
+        "textAlign": "center",
+        "width": "100%",
+      },
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          "Built by Sebastian Matias Segura. Copyright ©2018 by ",
+          <a
+            href="https://github.com/seb7887"
+            style={
+                        Object {
+                                    "color": "#fdfcfb",
+                                    "cursor": "pointer",
+                                    "fontWeight": "bold",
+                                    "textDecorationLine": "none",
+                                  }
+            }
+>
+            seb7887
+</a>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        "Built by Sebastian Matias Segura. Copyright ©2018 by ",
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "seb7887",
+            "href": "https://github.com/seb7887",
+            "style": Object {
+              "color": "#fdfcfb",
+              "cursor": "pointer",
+              "fontWeight": "bold",
+              "textDecorationLine": "none",
+            },
+          },
+          "ref": null,
+          "rendered": "seb7887",
+          "type": "a",
+        },
+      ],
+      "type": "p",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <p>
+          Built by Sebastian Matias Segura. Copyright ©2018 by 
+          <a
+                    href="https://github.com/seb7887"
+                    style={
+                              Object {
+                                        "color": "#fdfcfb",
+                                        "cursor": "pointer",
+                                        "fontWeight": "bold",
+                                        "textDecorationLine": "none",
+                                      }
+                    }
+          >
+                    seb7887
+          </a>
+</p>,
+        "style": Object {
+          "borderTop": "1px solid #00000",
+          "paddingTop": "2rem",
+          "textAlign": "center",
+          "width": "100%",
+        },
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "Built by Sebastian Matias Segura. Copyright ©2018 by ",
+            <a
+              href="https://github.com/seb7887"
+              style={
+                            Object {
+                                          "color": "#fdfcfb",
+                                          "cursor": "pointer",
+                                          "fontWeight": "bold",
+                                          "textDecorationLine": "none",
+                                        }
+              }
+>
+              seb7887
+</a>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          "Built by Sebastian Matias Segura. Copyright ©2018 by ",
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "seb7887",
+              "href": "https://github.com/seb7887",
+              "style": Object {
+                "color": "#fdfcfb",
+                "cursor": "pointer",
+                "fontWeight": "bold",
+                "textDecorationLine": "none",
+              },
+            },
+            "ref": null,
+            "rendered": "seb7887",
+            "type": "a",
+          },
+        ],
+        "type": "p",
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+    "attachTo": undefined,
+    "hydrateIn": undefined,
+  },
+}
+`;

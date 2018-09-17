@@ -1,10 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import MainPage from '../components/MainPage';
+import Main from './Main';
+import Footer from '../components/Footer';
 
 const App = () => (
   <Router>
-    <MainPage />
+    <div>
+      <Main />
+      <Footer />
+    </div>
   </Router>
 )
 
