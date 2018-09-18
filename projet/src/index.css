@@ -63,7 +63,7 @@ body {
 }
 
 .btn--small {  
-  height: 4rem;
+  height: 3rem;
   width: 11rem;
   text-transform: uppercase;
   font-size: 2rem;
@@ -103,8 +103,8 @@ body {
 }
 
 .form__input {
-  font-size: 1.5rem;
-  padding: 1.5rem 2rem;
+  font-size: 1.2rem;
+  padding: 1.2rem 2rem;
   background-color: #fdfcfb;
   border: none;
   border-radius: 2px;
@@ -138,3 +138,38 @@ body {
   z-index: 999;
 }
 
+.search {
+  margin-right: 1rem;
+  margin-top: 2.5rem;
+}
+
+.search__text {
+  width: 2.5rem;
+  height: 2rem;
+  background: none;
+  background-image: url('./images/search.png');
+  background-repeat: no-repeat;
+  border: none;
+  font-size: 1rem;
+  line-height: 1rem;
+  z-index: 1;
+  transition: all .25s ease-in .25s;
+  color: transparent;
+}
+
+.search__text:hover {
+  cursor: pointer;
+}
+
+.search__text:focus {
+  cursor: text;
+  background: none;
+  border-bottom: 1px solid #fdfcfb;
+  width: 55rem;
+  outline: none;
+  color: #fdfcfb;
+}
+
+.search__text:hover + span {
+  background: rgba(255, 255, 255, .2);
+}

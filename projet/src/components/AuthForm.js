@@ -1,10 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const formStyles = {
-
-}
-
 class AuthForm extends React.Component {
   constructor(props) {
     super(props);
@@ -17,7 +13,7 @@ class AuthForm extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const authType = this.props.signUp ? 'signup' : 'signin';
+    const authType = this.props.signUp ? 'register' : 'signin';
     this.props.onAuth(authType, this.state)
       .then(() => {
         this.props.history.push('/');

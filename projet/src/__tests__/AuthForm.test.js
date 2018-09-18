@@ -1,5 +1,6 @@
 import React from 'react';
-import { shallow, mount, render } from 'enzyme';
+import { shallow, mount } from 'enzyme';
+
 
 import AuthForm from '../components/AuthForm';
 
@@ -22,10 +23,11 @@ describe('AuthForm Component', () => {
     expect(wrapper.state('email')).toEqual('pepe@lepu.com');
   })
 
-  it('should responde to submit event', () => {
-    const buttonWrapper = shallow(<AuthForm />);
-    const fn = buttonWrapper.instance().handleSubmit();
-    buttonWrapper.find('.btn--small').simulate('submit');
-    expect(fn).toBeCalled();
+  it('should respond to submit event', () => {    
+    const spy = jest.fn(() => Promise.resolve({}));
+    const authWrapper = mount(<AuthForm onAuth={spy} />);
+    expect(spy).toHaveBeenCalledTimes(0);
+    authWrapper.find('.btn--small').simulate('submit', { preventDefault: () => {} });
+    expect(spy).toHaveBeenCalledTimes(1);
   })
 })

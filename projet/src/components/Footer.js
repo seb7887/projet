@@ -2,7 +2,7 @@ import React from 'react';
 
 const footerStyles = {
   borderTop: '1px solid #00000',
-  paddingTop: '2rem',
+  paddingTop: '1.5rem',
   width: '100%',
   textAlign: 'center',
 };

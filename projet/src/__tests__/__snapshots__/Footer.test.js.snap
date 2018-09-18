@@ -35,7 +35,7 @@ ShallowWrapper {
 </p>,
       "style": Object {
         "borderTop": "1px solid #00000",
-        "paddingTop": "2rem",
+        "paddingTop": "1.5rem",
         "textAlign": "center",
         "width": "100%",
       },
@@ -113,7 +113,7 @@ ShallowWrapper {
 </p>,
         "style": Object {
           "borderTop": "1px solid #00000",
-          "paddingTop": "2rem",
+          "paddingTop": "1.5rem",
           "textAlign": "center",
           "width": "100%",
         },
