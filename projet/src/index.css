@@ -133,4 +133,8 @@ body {
   transition: all .3s;
 }
 
+#modal-root {
+  position: relative;
+  z-index: 999;
+}
 

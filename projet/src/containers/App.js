@@ -1,15 +1,33 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
+import jwtDecode from 'jwt-decode';
+import { configStore } from '../store';
+import { setAuthToken, setCurrentUser } from '../store/actions/auth';
+
 import Main from './Main';
 import Footer from '../components/Footer';
 
+const store = configStore();
+
+if (localStorage.jwtToken) {
+  setAuthToken(localStorage.jwtToken);
+  try {
+    store.dispatch(setCurrentUser(jwtDecode(localStorage.jwtToken)));
+  } catch (e) {
+    store.dispatch(setCurrentUser({}));
+  }
+}
+
 const App = () => (
-  <Router>
-    <div>
-      <Main />
-      <Footer />
-    </div>
-  </Router>
+  <Provider store={store}>
+    <Router>
+      <div>
+        <Main />
+        <Footer />
+      </div>
+    </Router>
+  </Provider>
 )
 
 export default App;

@@ -1,18 +1,21 @@
 import React from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { authUser } from '../store/actions/auth';
 
 
 import MainPage from '../components/MainPage';
 import AuthForm from '../components/AuthForm';
 
+
 const Main = (props) => {
-  const { authUser } = props;
+  const { authUser, currentUser } = props;
   return (
     <div>
       <Switch>
         <Route
           exact path='/'
-          render={props => <MainPage {...props} /> }
+          render={props => <MainPage currentUser={currentUser} {...props} /> }
         />
         <Route
           exact path='/signin'
@@ -46,4 +49,10 @@ const Main = (props) => {
   );
 }
 
-export default Main;
+const mapStateToProps = (state) => {
+  return {
+    currentUser: state.currentUser,
+  }
+}
+
+export default withRouter(connect(mapStateToProps, { authUser })(Main));
