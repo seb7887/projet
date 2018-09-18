@@ -17,7 +17,7 @@ const MainPage = ({ currentUser }) => {
     );
   }
   return (
-    <Home />
+    <Home {...props} />
   );
 }
 

@@ -13,7 +13,7 @@ export const remove = (id) => ({
 
 export const removeProject = (user_id, project_id) => {
   return (dispatch) => {
-    return apiCall('delete', `http://localhost:8081/api/projects/user/${user_id}/project/${project_id}`)
+    return apiCall('delete', `/api/projects/user/${user_id}/project/${project_id}`)
       .then(() => dispatch(remove(project_id)))
       .catch((err) => {})
   }
@@ -21,7 +21,7 @@ export const removeProject = (user_id, project_id) => {
 
 export const fetchProjects = () => {
   return (dispatch) => {
-    return apiCall('get', 'http://localhost:8081/api/projects')
+    return apiCall('get', '/api/projects')
       .then((res) => {
         dispatch(loadProjects(res));
       })
@@ -29,10 +29,10 @@ export const fetchProjects = () => {
   }
 }
 
-export const postNewProject = (text) => (dispatch, getState) => {
+export const postNewProject = (project) => (dispatch, getState) => {
   const { currentUser } = getState();
   const id = currentUser.user.id;
-  return apiCall('post', `http://localhost:8081/projects/user/${id}`, { text })
+  return apiCall('post', `/api/projects/user/${id}`, { project })
     .then((res) => {})
     .catch((err) => {})
 }
