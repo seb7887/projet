@@ -11,10 +11,18 @@ import ErrorBoundry from './ErrorBoundry';
 import ProjectList from './ProjectList';
 
 const homeStyles = {
-  display: 'flex',
-  flexDirection: 'row',
-  justifyContent: 'space-between',
+  header: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  buttons: {
+    display: 'flex',
+    flexDirection: 'row',
+    marginRight: '1rem',
+  }
 }
+
 
 class Home extends React.Component {
   componentDidMount() {
@@ -25,11 +33,11 @@ class Home extends React.Component {
     const { projects } = this.props;
     return (
       <div>
-        <div style={homeStyles}>
+        <div style={homeStyles.header}>
           <Header />
-          <div>
+          <div style={homeStyles.buttons}>
             <SearchBox />
-            <Link to='/project/new'>+</Link>
+            <Link to='/project/new' className='f4 white pv2 ph3  dim bg-transparent br2 ba hover-bg-gray hover-white add-btn'>Add</Link>
           </div>
         </div>
         <Scroll>

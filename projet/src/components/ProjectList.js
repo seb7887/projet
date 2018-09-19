@@ -5,14 +5,15 @@ const ProjectList = ({ projects }) => {
   return (
     <div>
       {
-        projects.map((project, i) => {
+        projects.map((project) => {
           return (
             <Project
-              key={i}
-              name={project[i].name}
-              idea={project[i].idea}
-              features={project[i].features}
-              user={project[i].user}
+              key={project._id}
+              name={project.name}
+              idea={project.idea}
+              features={project.features}
+              user={project.user}
+              onClick={this.toogleModal}
             />
           );
         })

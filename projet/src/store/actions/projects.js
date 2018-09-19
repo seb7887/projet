@@ -1,4 +1,5 @@
 import { apiCall } from '../../api/api';
+import { addError } from './errors';
 import { LOAD_PROJECTS, REMOVE_PROJECT } from '../actionTypes';
 
 export const loadProjects = (projects) => ({
@@ -15,7 +16,7 @@ export const removeProject = (user_id, project_id) => {
   return (dispatch) => {
     return apiCall('delete', `http://localhost:8081/api/projects/user/${user_id}/project/${project_id}`)
       .then(() => dispatch(remove(project_id)))
-      .catch((err) => {})
+      .catch((err) => addError(err.message))
   }
 }
 
@@ -25,14 +26,14 @@ export const fetchProjects = () => {
       .then((res) => {
         dispatch(loadProjects(res));
       })
-      .catch((err) => {})
+      .catch((err) => dispatch(addError(err.message)));
   }
 }
 
 export const postNewProject = (project) => (dispatch, getState) => {
   const { currentUser } = getState();
   const id = currentUser.user.id;
-  return apiCall('post', `http://localhost:8081/api/projects/user/${id}`, { project })
+  return apiCall('post', `http://localhost:8081/api/projects/user/${id}`, project)
     .then((res) => {})
-    .catch((err) => {})
+    .catch((err) => addError(err.message))
 }

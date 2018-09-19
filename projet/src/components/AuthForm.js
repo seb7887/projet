@@ -34,13 +34,21 @@ class AuthForm extends React.Component {
       signUp,
       heading,
       buttonText,
+      errors,
+      history,
+      removeError,
     } = this.props;
+
+    history.listen(() => {
+      removeError();
+    });
 
     return (
       <div className='auth-page'>
         <h1 className="title">Projet</h1>
         <form onSubmit={this.handleSubmit} className='form'>
           <h2>{heading}</h2>
+          { errors.message && (<div>{errors.message}</div>)}
           <input
             autoComplete='off'
             className='form__input' 
@@ -96,7 +104,9 @@ AuthForm.propTypes = {
   buttonText: PropTypes.string,
   heading: PropTypes.string,
   history: PropTypes.object,
-  onAuth: PropTypes.func, 
+  onAuth: PropTypes.func,
+  removeError: PropTypes.func,
+  errors: PropTypes.object,
 };
 
 export default AuthForm;

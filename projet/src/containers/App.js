@@ -6,7 +6,6 @@ import { configStore } from '../store';
 import { setAuthToken, setCurrentUser } from '../store/actions/auth';
 
 import Main from './Main';
-import Footer from '../components/Footer';
 
 const store = configStore();
 
