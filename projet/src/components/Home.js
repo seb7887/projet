@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import { fetchProjects } from '../store/actions/projects';
 
@@ -20,15 +22,19 @@ class Home extends React.Component {
   }
   
   render() {
+    const { projects } = this.props;
     return (
       <div>
         <div style={homeStyles}>
           <Header />
-          <SearchBox />
+          <div>
+            <SearchBox />
+            <Link to='/project/new'>+</Link>
+          </div>
         </div>
         <Scroll>
           <ErrorBoundry>
-            <ProjectList />
+            <ProjectList projects={projects} />
           </ErrorBoundry>
         </Scroll>
       </div>
@@ -36,4 +42,10 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+const mapStateToProps = (state) => {
+  return {
+    projects: state.projects,
+  }
+}
+
+export default connect(mapStateToProps, { fetchProjects })(Home);

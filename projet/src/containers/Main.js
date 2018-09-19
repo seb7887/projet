@@ -2,10 +2,12 @@ import React from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { authUser } from '../store/actions/auth';
+import withAuth from '../hocs/withAuth';
 
 
 import MainPage from '../components/MainPage';
 import AuthForm from '../components/AuthForm';
+import ProjectForm from '../components/ProjectForm';
 
 
 const Main = (props) => {
@@ -43,6 +45,10 @@ const Main = (props) => {
               />
             )
           }}
+        />
+        <Route
+          path='/project/new'
+          component={withAuth(ProjectForm)}
         />
       </Switch>
     </div>
