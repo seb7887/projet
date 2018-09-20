@@ -6,6 +6,7 @@ import { fetchProjects } from '../store/actions/projects';
 
 import Header from './Header';
 import SearchBox from './SearchBox';
+import ProfileIcon from './ProfileIcon';
 import Scroll from './Scroll';
 import ErrorBoundry from './ErrorBoundry';
 import ProjectList from './ProjectList';
@@ -75,6 +76,7 @@ class Home extends React.Component {
           <div style={homeStyles.buttons}>
             <SearchBox />
             <Link to='/project/new' className='f4 white pv2 ph3  dim bg-transparent br2 ba hover-bg-gray hover-white add-btn'>Add</Link>
+            <ProfileIcon />
           </div>
         </div>
         <Scroll>
