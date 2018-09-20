@@ -175,7 +175,7 @@ body::-webkit-scrollbar-thumb {
   border: none;
   font-size: 1rem;
   line-height: 1rem;
-  z-index: 1;
+
   transition: all .25s ease-in .25s;
   color: transparent;
 }
@@ -197,4 +197,7 @@ body::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, .2);
 }
 
-
+#modal-root {
+  position: relative;
+  z-index: 999;
+}

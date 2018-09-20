@@ -13,7 +13,7 @@ class Modal extends React.Component {
     modalRoot.appendChild(this.el);
   }
 
-  componentDidUnmount() {
+  componentWillUnmount() {
     modalRoot.removeChild(this.el);
   }
 
