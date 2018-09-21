@@ -1,21 +1,21 @@
-import axios from 'axios';
+import axios from "axios";
 
-export const setTokenHeader = (token) => {
+export const setTokenHeader = token => {
   if (token) {
-    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+    axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
   } else {
-    delete axios.defaults.headers.common['Authorization'];
+    delete axios.defaults.headers.common["Authorization"];
   }
-}
+};
 
 export const apiCall = (method, url, data) => {
   return new Promise((resolve, reject) => {
     return axios[method.toLowerCase()](url, data)
-      .then((res) => {
+      .then(res => {
         return resolve(res.data);
       })
-      .catch((err) => {
+      .catch(err => {
         return reject(err.response.data.error);
       });
   });
-}
+};

@@ -1,17 +1,23 @@
-import React from 'react';
+import React from "react";
 
-const SearchBox = ({ searchfield, searchChange }) => {  
-  return (
-    <div className='search'>
-      <input
-        aria-label='Search'
-        type='search'
-        onChange={searchChange}
-        className='search__text'
-      />
-      <span></span>
-    </div>
-  );
+class SearchBox extends React.Component {
+  handleChange = e => {
+    this.props.searchChange(e.target.value);
+  };
+
+  render() {
+    return (
+      <div className="search">
+        <input
+          aria-label="Search"
+          type="search"
+          onChange={this.handleChange}
+          className="search__text"
+        />
+        <span />
+      </div>
+    );
+  }
 }
 
 export default SearchBox;

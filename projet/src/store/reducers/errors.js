@@ -1,4 +1,4 @@
-import { ADD_ERROR, REMOVE_ERROR } from '../actionTypes';
+import { ADD_ERROR, REMOVE_ERROR } from "../actionTypes";
 
 export const errors = (state = { message: null }, action = {}) => {
   switch (action.type) {
@@ -9,4 +9,4 @@ export const errors = (state = { message: null }, action = {}) => {
     default:
       return state;
   }
-}
+};

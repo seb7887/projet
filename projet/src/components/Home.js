@@ -1,50 +1,64 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React from "react";
+import { connect } from "react-redux";
 
-import { fetchProjects } from '../store/actions/projects';
+import { fetchProjects } from "../store/actions/projects";
 
-import Navbar from './Navbar';
-import Scroll from './Scroll';
-import ErrorBoundry from './ErrorBoundry';
-import ProjectList from './ProjectList';
-import Modal from './Modal';
-import ProjectCard from './ProjectCard';
+import Navbar from "./Navbar";
+import Scroll from "./Scroll";
+import ErrorBoundry from "./ErrorBoundry";
+import ProjectList from "./ProjectList";
+import Modal from "./Modal";
+import ProjectCard from "./ProjectCard";
 
 class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       isProjectOpen: false,
-      name: '',
-      idea: '',
-      features: '',
+      name: "",
+      idea: "",
+      features: "",
       keywords: [],
-    }
+      searchField: ""
+    };
   }
 
   componentDidMount() {
     this.props.fetchProjects();
   }
 
-  toggleModal = (childProject) => {
-    console.log(childProject);
+  toggleModal = childProject => {
     this.setState({
       isProjectOpen: !this.state.isProjectOpen,
       name: childProject.name,
       idea: childProject.idea,
       features: childProject.features,
-      keywords: childProject.keywords,
+      keywords: childProject.keywords
     });
-  }
-  
+  };
+
+  onSearchChange = text => {
+    this.setState({
+      searchField: text
+    });
+  };
+
+  filteredProjects = () => {
+    if (this.state.searchField.length > 0) {
+      return this.props.projects.filter(project => {
+        return project.keywords.includes(this.state.searchField.toLowerCase());
+      });
+    }
+    return this.props.projects;
+  };
+
   render() {
     const { isProjectOpen, name, idea, features, keywords } = this.state;
-    const { projects } = this.props;
     return (
       <div>
-        { isProjectOpen &&
+        {isProjectOpen && (
           <Modal>
-            <ProjectCard 
+            <ProjectCard
               name={name}
               idea={idea}
               features={features}
@@ -52,11 +66,14 @@ class Home extends React.Component {
               toggleModal={this.toggleModal}
             />
           </Modal>
-        }
-        <Navbar />
+        )}
+        <Navbar searchChange={this.onSearchChange} />
         <Scroll>
           <ErrorBoundry>
-            <ProjectList projects={projects} toggleModal={this.toggleModal}/>
+            <ProjectList
+              projects={this.filteredProjects()}
+              toggleModal={this.toggleModal}
+            />
           </ErrorBoundry>
         </Scroll>
       </div>
@@ -64,10 +81,13 @@ class Home extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
-    projects: state.projects,
-  }
-}
+    projects: state.projects
+  };
+};
 
-export default connect(mapStateToProps, { fetchProjects })(Home);
+export default connect(
+  mapStateToProps,
+  { fetchProjects }
+)(Home);

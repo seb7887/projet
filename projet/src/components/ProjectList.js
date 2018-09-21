@@ -1,13 +1,13 @@
-import React from 'react';
-import Project from './Project';
+import React from "react";
+import Project from "./Project";
 
-class ProjectList extends React.Component {  
+class ProjectList extends React.Component {
   render() {
-    const { projects, toggleModal } = this.props; 
-    return (
-      <div>
-        {
-          projects.map((project) => {
+    const { projects, toggleModal } = this.props;
+    if (projects.length > 0) {
+      return (
+        <div>
+          {projects.map(project => {
             return (
               <Project
                 key={project._id}
@@ -16,12 +16,12 @@ class ProjectList extends React.Component {
                 toggleModal={toggleModal.bind(this, project)}
               />
             );
-          })
-        }
-      </div>
-    );
+          })}
+        </div>
+      );
+    }
+    return <div>No projects</div>;
   }
 }
-
 
 export default ProjectList;

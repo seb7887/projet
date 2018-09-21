@@ -1,80 +1,86 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { postNewProject } from '../store/actions/projects';
+import React from "react";
+import { connect } from "react-redux";
+import { postNewProject } from "../store/actions/projects";
 
 class ProjectForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      idea: '',
-      features: '',
-      keywords: '',
+      name: "",
+      idea: "",
+      features: "",
+      keywords: ""
     };
   }
 
-  handleNewProject = (event) => {
+  handleNewProject = event => {
     event.preventDefault();
     this.props.postNewProject({
       name: this.state.name,
       idea: this.state.idea,
       features: this.state.features,
-      keywords: this.state.keywords,
+      keywords: this.state.keywords
     });
-    this.setState({ 
-      name: '',
-      idea: '',
-      features: '',
-      keywords: '',
+    this.setState({
+      name: "",
+      idea: "",
+      features: "",
+      keywords: ""
     });
-    this.props.history.push('/');
-  }
+    this.props.history.push("/");
+  };
 
   render() {
     return (
-      <div className='auth-page'>
-        <form onSubmit={this.handleNewProject} className='form'>
-          <h1 className='title'>New idea</h1>
-          {this.props.errors.message && (
-            <div>{this.props.errors.message}</div>
-          )}
+      <div className="auth-page">
+        <form onSubmit={this.handleNewProject} className="form">
+          <h1 className="title">New idea</h1>
+          {this.props.errors.message && <div>{this.props.errors.message}</div>}
           <input
-            autoComplete='off'
-            className='form__input'
-            type='text'
-            placeholder='Name'
+            autoComplete="off"
+            className="form__input"
+            type="text"
+            placeholder="Name"
             value={this.state.name}
             onChange={e => this.setState({ name: e.target.value })}
           />
-          <label htmlFor='email' className='form__label'>Name</label>
+          <label htmlFor="email" className="form__label">
+            Name
+          </label>
           <input
-            autoComplete='off'
-            className='form__input'
-            type='text'
-            placeholder='Idea'
+            autoComplete="off"
+            className="form__input"
+            type="text"
+            placeholder="Idea"
             value={this.state.idea}
             onChange={e => this.setState({ idea: e.target.value })}
           />
-          <label htmlFor='email' className='form__label'>Idea</label>
+          <label htmlFor="email" className="form__label">
+            Idea
+          </label>
           <input
-            autoComplete='off'
-            className='form__input'
-            type='text'
-            placeholder='Features'
+            autoComplete="off"
+            className="form__input"
+            type="text"
+            placeholder="Features"
             value={this.state.features}
             onChange={e => this.setState({ features: e.target.value })}
           />
-          <label htmlFor='email' className='form__label'>Features</label>
+          <label htmlFor="email" className="form__label">
+            Features
+          </label>
           <input
-            autoComplete='off'
-            className='form__input'
-            type='text'
-            placeholder='Keywords'
+            autoComplete="off"
+            className="form__input"
+            type="text"
+            placeholder="Keywords"
             value={this.state.keywords}
             onChange={e => this.setState({ keywords: e.target.value })}
           />
-          <label htmlFor='email' className='form__label'>Keywords</label>
-          <button type='submit' className='btn--small'>
+          <label htmlFor="email" className="form__label">
+            Keywords
+          </label>
+          <button type="submit" className="btn--small">
             Add Idea
           </button>
         </form>
@@ -83,10 +89,13 @@ class ProjectForm extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
-    errors: state.errors,
+    errors: state.errors
   };
-}
+};
 
-export default connect(mapStateToProps, { postNewProject })(ProjectForm);
+export default connect(
+  mapStateToProps,
+  { postNewProject }
+)(ProjectForm);

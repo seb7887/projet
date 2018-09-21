@@ -1,4 +1,8 @@
-import { LOAD_PROJECTS, REMOVE_PROJECT } from '../actionTypes';
+import { LOAD_PROJECTS, REMOVE_PROJECT } from "../actionTypes";
+
+const initialStateSearch = {
+  searchField: ""
+};
 
 export const projects = (state = [], action = {}) => {
   switch (action.type) {
@@ -9,4 +13,4 @@ export const projects = (state = [], action = {}) => {
     default:
       return state;
   }
-}
+};

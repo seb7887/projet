@@ -1,32 +1,34 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
 class AuthForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
-      username: '',
-      password: '',
+      email: "",
+      username: "",
+      password: ""
     };
   }
 
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
-    const authType = this.props.signUp ? 'register' : 'signin';
-    this.props.onAuth(authType, this.state)
+    const authType = this.props.signUp ? "register" : "signin";
+    this.props
+      .onAuth(authType, this.state)
       .then(() => {
-        this.props.history.push('/');
-      }).catch(() => {
+        this.props.history.push("/");
+      })
+      .catch(() => {
         return;
       });
-  }
+  };
 
-  handleChange = (e) => {
+  handleChange = e => {
     this.setState({
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value
     });
-  }
+  };
 
   render() {
     const { email, username, password } = this.state;
@@ -36,7 +38,7 @@ class AuthForm extends React.Component {
       buttonText,
       errors,
       history,
-      removeError,
+      removeError
     } = this.props;
 
     history.listen(() => {
@@ -44,59 +46,63 @@ class AuthForm extends React.Component {
     });
 
     return (
-      <div className='auth-page'>
+      <div className="auth-page">
         <h1 className="title">Projet</h1>
-        <form onSubmit={this.handleSubmit} className='form'>
+        <form onSubmit={this.handleSubmit} className="form">
           <h2>{heading}</h2>
-          { errors.message && (<div>{errors.message}</div>)}
+          {errors.message && <div>{errors.message}</div>}
           <input
-            autoComplete='off'
-            className='form__input' 
-            type='text'
-            placeholder='Email'
-            id='email'
-            name='email'
+            autoComplete="off"
+            className="form__input"
+            type="text"
+            placeholder="Email"
+            id="email"
+            name="email"
             onChange={this.handleChange}
             value={email}
             required
           />
-          <label htmlFor='email' className='form__label'>Email</label>
+          <label htmlFor="email" className="form__label">
+            Email
+          </label>
           {signUp && (
-          <div>
-            <input
-              autoComplete='off'
-              className='form__input'
-              type='text'
-              placeholder='Username'
-              id='username'
-              name='username'
-              onChange={this.handleChange}
-              value={username}
-              required
-            />
-            <label htmlFor='username' className='form__label'>Username</label>
-          </div>
+            <div>
+              <input
+                autoComplete="off"
+                className="form__input"
+                type="text"
+                placeholder="Username"
+                id="username"
+                name="username"
+                onChange={this.handleChange}
+                value={username}
+                required
+              />
+              <label htmlFor="username" className="form__label">
+                Username
+              </label>
+            </div>
           )}
           <input
-            autoComplete='off'
-            className='form__input'
-            type='password'
-            placeholder='password'
-            id='password'
-            name='password'
+            autoComplete="off"
+            className="form__input"
+            type="password"
+            placeholder="password"
+            id="password"
+            name="password"
             onChange={this.handleChange}
             value={password}
             required
           />
-          <label htmlFor='password' className='form__label'>Password</label>
-          <button
-            className='btn--small'
-            type='submit'>
+          <label htmlFor="password" className="form__label">
+            Password
+          </label>
+          <button className="btn--small" type="submit">
             {buttonText}
           </button>
         </form>
       </div>
-    )
+    );
   }
 }
 
@@ -106,7 +112,7 @@ AuthForm.propTypes = {
   history: PropTypes.object,
   onAuth: PropTypes.func,
   removeError: PropTypes.func,
-  errors: PropTypes.object,
+  errors: PropTypes.object
 };
 
 export default AuthForm;

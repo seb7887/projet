@@ -1,70 +1,73 @@
-import React from 'react';
-import { Switch, Route, withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { authUser } from '../store/actions/auth';
-import { removeError } from '../store/actions/errors';
-import withAuth from '../hocs/withAuth';
+import React from "react";
+import { Switch, Route, withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import { authUser } from "../store/actions/auth";
+import { removeError } from "../store/actions/errors";
+import withAuth from "../hocs/withAuth";
 
+import MainPage from "../components/MainPage";
+import AuthForm from "../components/AuthForm";
+import ProjectForm from "../components/ProjectForm";
 
-import MainPage from '../components/MainPage';
-import AuthForm from '../components/AuthForm';
-import ProjectForm from '../components/ProjectForm';
-
-
-const Main = (props) => {
+const Main = props => {
   const { authUser, errors, currentUser, removeError } = props;
   return (
     <div>
       <Switch>
         <Route
-          exact path='/'
-          render={props => <MainPage currentUser={currentUser} {...props} /> }
+          exact
+          path="/"
+          render={props => <MainPage currentUser={currentUser} {...props} />}
         />
         <Route
-          exact path='/signin'
-          render={(props) => {
+          exact
+          path="/signin"
+          render={props => {
             return (
               <AuthForm
                 removeError={removeError}
                 errors={errors}
                 onAuth={authUser}
-                buttonText='Sign in'
-                heading='Welcome Back!'
+                buttonText="Sign in"
+                heading="Welcome Back!"
                 {...props}
               />
-            )
+            );
           }}
         />
         <Route
-          exact path='/signup'
-          render={(props) => {
+          exact
+          path="/signup"
+          render={props => {
             return (
               <AuthForm
                 removeError={removeError}
                 errors={errors}
                 onAuth={authUser}
                 signUp
-                buttonText='Sign up'
-                heading='Join Projet today'
+                buttonText="Sign up"
+                heading="Join Projet today"
                 {...props}
               />
-            )
+            );
           }}
         />
-        <Route
-          path='/project/new'
-          component={withAuth(ProjectForm)}
-        />
+        <Route path="/project/new" component={withAuth(ProjectForm)} />
       </Switch>
     </div>
   );
-}
+};
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     currentUser: state.currentUser,
-    errors: state.errors,
-  }
-}
+    errors: state.errors
+  };
+};
 
-export default withRouter(connect(mapStateToProps, { authUser, removeError })(Main));
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { authUser, removeError }
+  )(Main)
+);

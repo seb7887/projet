@@ -1,8 +1,8 @@
-import { SET_CURRENT_USER } from '../actionTypes';
+import { SET_CURRENT_USER } from "../actionTypes";
 
 const DEFAULT_STATE = {
   isAuthenticated: false,
-  user: {},
+  user: {}
 };
 
 export const currentUser = (state = DEFAULT_STATE, action = {}) => {
@@ -10,9 +10,9 @@ export const currentUser = (state = DEFAULT_STATE, action = {}) => {
     case SET_CURRENT_USER:
       return {
         isAuthenticated: !!Object.keys(action.user).length, // > 0
-        user: action.user,
+        user: action.user
       };
     default:
       return state;
   }
-}
+};

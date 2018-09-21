@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
 class ErrorBoundry extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      hasError: false,
-    }
+      hasError: false
+    };
   }
 
   componentDidCatch(error, info) {
@@ -14,7 +14,7 @@ class ErrorBoundry extends React.Component {
 
   render() {
     if (this.state.hasError) {
-      return <h1>Oops!</h1>
+      return <h1>Oops!</h1>;
     }
     return this.props.children;
   }
