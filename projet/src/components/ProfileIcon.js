@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
 class ProfileIcon extends React.Component {
@@ -17,7 +18,7 @@ class ProfileIcon extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='pa4 tc'>
         <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
           <DropdownToggle
             tag='span'
@@ -30,7 +31,8 @@ class ProfileIcon extends React.Component {
               className="br-100 h3 w3 dib" alt="avatar" />
           </DropdownToggle>
           <DropdownMenu className='b--transparent shadow-3' style={{marginTop: '20px', backgroundColor: 'rgba(255, 255, 255, 0.5)'}} right>
-            <DropdownItem>Logout</DropdownItem>
+            <Link to='/project/new'><DropdownItem>New idea</DropdownItem>
+            <DropdownItem>Sign out</DropdownItem></Link>
           </DropdownMenu>
         </Dropdown>
       </div>
