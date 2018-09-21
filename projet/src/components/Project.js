@@ -11,7 +11,7 @@ const projectStyles = {
 };
 
 const Project = props => {
-  const { name, idea, features, keywords, toggleModal } = props;
+  const { name, idea, features, keywords, toggleModal, removeProject, isCorrectUser } = props;
   return (
     <div
       style={projectStyles.div}
@@ -20,6 +20,9 @@ const Project = props => {
     >
       <h2 style={projectStyles.title}>{name}</h2>
       <p>{idea}</p>
+      { isCorrectUser && (
+      <a onClick={removeProject}>Delete</a>
+      )}
     </div>
   );
 };

@@ -1,9 +1,5 @@
 import { LOAD_PROJECTS, REMOVE_PROJECT } from "../actionTypes";
 
-const initialStateSearch = {
-  searchField: ""
-};
-
 export const projects = (state = [], action = {}) => {
   switch (action.type) {
     case LOAD_PROJECTS:
