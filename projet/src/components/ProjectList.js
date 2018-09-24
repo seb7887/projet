@@ -7,7 +7,7 @@ import { removeProject } from '../store/actions/projects';
 
 class ProjectList extends React.Component {
   render() {
-    const { projects, toggleModal, currentUser } = this.props;
+    const { projects, toggleModal, removeProject, currentUser } = this.props;
     if (projects.length > 0) {
       return (
         <div>
@@ -17,7 +17,7 @@ class ProjectList extends React.Component {
                 key={project._id}
                 name={project.name}
                 idea={project.idea}
-                isCorrectUser={currentUser === project.user._id}
+                isCorrectUser={currentUser === project.user}
                 removeProject={removeProject.bind(this, project.user, project._id)}
                 toggleModal={toggleModal.bind(this, project)}
               />

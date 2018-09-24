@@ -13,6 +13,7 @@ export const remove = id => ({
 });
 
 export const removeProject = (user_id, project_id) => {
+  console.log('siii');
   return dispatch => {
     return apiCall(
       "delete",
