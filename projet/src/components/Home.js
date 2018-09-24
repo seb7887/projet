@@ -27,6 +27,10 @@ class Home extends React.Component {
     this.props.fetchProjects();
   }
 
+  componentWillUpdate() {
+    this.props.fetchProjects();
+  }
+
   toggleModal = childProject => {
     this.setState({
       isProjectOpen: !this.state.isProjectOpen,
