@@ -73,9 +73,9 @@ class ProjectForm extends React.Component {
             autoComplete="off"
             className="form__input"
             type="text"
-            placeholder="Keywords"
+            placeholder="Keywords (separate with commas)"
             value={this.state.keywords}
-            onChange={e => this.setState({ keywords: e.target.value })}
+            onChange={e => this.setState({ keywords: e.target.value.replace(' ', '') })}
           />
           <label htmlFor="email" className="form__label">
             Keywords
