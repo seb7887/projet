@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://seb7887.github.io/projet",
   "dependencies": {
+    "@material-ui/core": "^3.1.2",
     "axios": "^0.18.0",
     "bootstrap": "^4.1.3",
     "gh-pages": "^1.2.0",
@@ -18,6 +19,7 @@
     "redux": "^4.0.0",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
+    "styled-components": "^3.4.9",
     "tachyons": "4.9.0"
   },
   "scripts": {
@@ -27,13 +29,18 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "precommit": "pretty-quick --staged"
+    "precommit": "pretty-quick --staged",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "devDependencies": {
     "enzyme": "3.6.0",
     "enzyme-adapter-react-16": "1.5.0",
     "prettier": "1.14.2",
     "pretty-quick": "1.6.0",
-    "redux-mock-store": "1.5.3"
+    "redux-mock-store": "1.5.3",
+    "@storybook/react": "^3.4.11",
+    "@storybook/addon-actions": "^3.4.11",
+    "@storybook/addon-links": "^3.4.11"
   }
 }

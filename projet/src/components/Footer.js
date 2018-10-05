@@ -1,18 +1,21 @@
 import React from "react";
+import styled from 'styled-components';
 
-const footerStyles = {
-  borderTop: "1px solid #00000",
-  paddingTop: "1.5rem",
-  width: "100%",
-  textAlign: "center"
-};
+const Div = styled.div`
+  padding-top: 1.5rem;
+  text-align: center;
 
-const linkStyles = {
-  textDecorationLine: "none",
-  fontWeight: "bold",
-  color: "#fdfcfb",
-  cursor: "pointer"
-};
+  @media (max-width: 750px) {
+    display: none;
+  }
+`;
+
+const Link = styled.a`
+  text-decoration: none;
+  font-weight: bold;
+  color: #f1f2f1;
+  cursor: pointer;
+`;
 
 class Footer extends React.Component {
   shouldComponentUpdate(nextProps, nextState) {
@@ -21,14 +24,14 @@ class Footer extends React.Component {
 
   render() {
     return (
-      <div style={footerStyles}>
+      <Div>
         <p>
           Built by Sebastian Matias Segura. Copyright &copy;2018 by{" "}
-          <a href="https://github.com/seb7887" style={linkStyles}>
+          <Link href="https://github.com/seb7887">
             seb7887
-          </a>
+          </Link>
         </p>
-      </div>
+      </Div>
     );
   }
 }
