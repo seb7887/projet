@@ -18,6 +18,12 @@ const Btn = styled.button`
     opacity: .5;
   }
 
+  @media (max-width: 1200px) {
+    margin: 0;
+    padding: 1.5rem 4rem 1.5rem 4rem;
+    font-size: 2.5rem;
+  }
+
   @media (max-width: 750px) {
     font-size: 4.5rem;
     width: 90%;
@@ -26,10 +32,12 @@ const Btn = styled.button`
   @media (max-width: 480px) {
     font-size: 3rem;
     width: 90%;
+    margin-top: .5rem;
   }
 
   @media (max-width: 380px) and (max-height: 650px) {
     font-size: 2rem;
+    margin-top: .5rem;
   }
 `;
 

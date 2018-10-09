@@ -15,8 +15,6 @@ const Main = styled.main`
   height: 100vh;
   display: flex;
   flex-direction: column;
-  // margin-top: 3rem;
-  // margin-bottom: 2rem;
   padding: 0;
   text-align: center;
   justify-content: space-evenly;
@@ -28,8 +26,18 @@ const Main = styled.main`
 `;
 
 const LogoDiv = styled.div`
-  margin-top: 4rem;
-  flex-grow: 2;
+  margin-top: 2rem;
+  flex-grow: .5;
+
+  @media (max-width: 1200px) {
+    margin-top: 4rem;
+    flex-grow: 3;
+  }
+
+  @media (max-width: 800px) {
+    margin-top: 4rem;
+    flex-grow: 2;
+  }
 `;
 
 const Icon = styled.img`
@@ -55,6 +63,11 @@ const Title = styled.h1`
   background-image: linear-gradient(135deg, #d2d1d2 0%, #f1f2f1 100%);
   -webkit-background-clip: text;
   color: transparent;
+
+  @media (max-width: 1200px) {
+    font-size: 10rem;
+    letter-spacing: 1.5rem;
+  }
 
   @media (max-width: 750px) {
     font-size: 8rem;
@@ -85,15 +98,17 @@ const Box = styled.div`
   display: flex;
   flex-direction: row;
   width: 40rem;
-  flex-grow: 1;
+  flex-grow: .1;
   justify-content: space-between;
   margin: auto;
-  padding: 2rem;
+  padding: 0rem;
+
+  @media (max-width: 1200px) {
+    padding: 1rem;
+  }
 
   @media (max-width: 750px) {
-    // margin-top: 14rem;
     width: 100vw;
-    // height: 15rem;
     display: flex;
     flex-direction: column;
     padding: 0;
@@ -107,6 +122,11 @@ const Box = styled.div`
     justify-content: center;
     align-items: strech;
   }
+
+  @media (max-width: 380px) and (max-height: 650px) {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
 `;
 
 /**
@@ -119,9 +139,9 @@ const MainPage = ({ currentUser }) => {
       <div>
         <Main>
           <LogoDiv>
-          <Icon src={logo} alt='logo' />
-          <Title>Projet</Title>
-          <SubTitle>Need a project idea? Sign up and get some!</SubTitle>
+            <Icon src={logo} alt='logo' />
+            <Title>Projet</Title>
+            <SubTitle>Need a project idea? Sign up and get some!</SubTitle>
           </LogoDiv>
           <Box>
             <Link to="/signup">

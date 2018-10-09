@@ -2,10 +2,9 @@ import React from "react";
 import styled from 'styled-components';
 
 const Div = styled.div`
-  padding-top: 1.5rem;
   text-align: center;
 
-  @media (max-width: 750px) {
+  @media (max-width: 1200px) {
     display: none;
   }
 `;
