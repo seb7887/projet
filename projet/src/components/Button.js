@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components'
+import React from "react";
+import styled from "styled-components";
 
 const Btn = styled.button`
   display: inline-block;
@@ -12,10 +12,10 @@ const Btn = styled.button`
   background: linear-gradient(to right, #d2dad2 0%, #f1f2f1 100%);
   color: #313131;
   cursor: pointer;
-  transition: all .2s;
+  transition: all 0.2s;
 
   :hover {
-    opacity: .5;
+    opacity: 0.5;
   }
 
   @media (max-width: 1200px) {
@@ -32,19 +32,17 @@ const Btn = styled.button`
   @media (max-width: 480px) {
     font-size: 3rem;
     width: 90%;
-    margin-top: .5rem;
+    margin-top: 0.5rem;
   }
 
   @media (max-width: 380px) and (max-height: 650px) {
     font-size: 2rem;
-    margin-top: .5rem;
+    margin-top: 0.5rem;
   }
 `;
 
-const Button = (props) => {
-  return (
-    <Btn>{props.text}</Btn>
-  );
-}
+const Button = props => {
+  return <Btn>{props.text}</Btn>;
+};
 
 export default Button;

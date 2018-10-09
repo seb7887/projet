@@ -75,7 +75,9 @@ class ProjectForm extends React.Component {
             type="text"
             placeholder="Keywords (separate with commas)"
             value={this.state.keywords}
-            onChange={e => this.setState({ keywords: e.target.value.replace(' ', '') })}
+            onChange={e =>
+              this.setState({ keywords: e.target.value.replace(" ", "") })
+            }
           />
           <label htmlFor="email" className="form__label">
             Keywords

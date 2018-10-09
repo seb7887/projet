@@ -1,5 +1,5 @@
 import React from "react";
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const Div = styled.div`
   text-align: center;
@@ -26,9 +26,7 @@ class Footer extends React.Component {
       <Div>
         <p>
           Built by Sebastian Matias Segura. Copyright &copy;2018 by{" "}
-          <Link href="https://github.com/seb7887">
-            seb7887
-          </Link>
+          <Link href="https://github.com/seb7887">seb7887</Link>
         </p>
       </Div>
     );

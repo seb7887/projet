@@ -29,7 +29,6 @@ const Main = props => {
                 errors={errors}
                 onAuth={authUser}
                 buttonText="Sign in"
-                heading="Welcome Back!"
                 {...props}
               />
             );
@@ -46,7 +45,6 @@ const Main = props => {
                 onAuth={authUser}
                 signUp
                 buttonText="Sign up"
-                heading="Join Projet today"
                 {...props}
               />
             );

@@ -1,9 +1,9 @@
 import React from "react";
-import { connect } from 'react-redux'
+import { connect } from "react-redux";
 
 import Project from "./Project";
 
-import { removeProject } from '../store/actions/projects';
+import { removeProject } from "../store/actions/projects";
 
 class ProjectList extends React.Component {
   render() {
@@ -18,7 +18,11 @@ class ProjectList extends React.Component {
                 name={project.name}
                 idea={project.idea}
                 isCorrectUser={currentUser === project.user}
-                removeProject={removeProject.bind(this, project.user, project._id)}
+                removeProject={removeProject.bind(
+                  this,
+                  project.user,
+                  project._id
+                )}
                 toggleModal={toggleModal.bind(this, project)}
               />
             );
@@ -30,10 +34,13 @@ class ProjectList extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
-    currentUser: state.currentUser.user.id,
+    currentUser: state.currentUser.user.id
   };
-}
+};
 
-export default connect(mapStateToProps, { removeProject })(ProjectList);
+export default connect(
+  mapStateToProps,
+  { removeProject }
+)(ProjectList);

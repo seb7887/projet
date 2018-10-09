@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styled from 'styled-components';
+import styled from "styled-components";
 
 import logo from "../images/rocket.svg";
-import Button from './Button';
+import Button from "./Button";
 import Footer from "./Footer";
 import Home from "./Home";
 
@@ -27,7 +27,7 @@ const Main = styled.main`
 
 const LogoDiv = styled.div`
   margin-top: 2rem;
-  flex-grow: .5;
+  flex-grow: 0.5;
 
   @media (max-width: 1200px) {
     margin-top: 4rem;
@@ -76,18 +76,18 @@ const Title = styled.h1`
 
   @media (max-width: 500px) {
     font-size: 5rem;
-    letter-spacing: .5rem;
+    letter-spacing: 0.5rem;
   }
 
   @media (max-width: 380px) and (max-height: 650px) {
     font-size: 3.5rem;
-    letter-spacing: .3;
+    letter-spacing: 0.3;
   }
 `;
 
 const SubTitle = styled.h2`
   font-weight: bold;
-  letter-spacing: .1rem;
+  letter-spacing: 0.1rem;
 
   @media (max-width: 750px) {
     display: none;
@@ -98,7 +98,7 @@ const Box = styled.div`
   display: flex;
   flex-direction: row;
   width: 40rem;
-  flex-grow: .1;
+  flex-grow: 0.1;
   justify-content: space-between;
   margin: auto;
   padding: 0rem;
@@ -139,16 +139,16 @@ const MainPage = ({ currentUser }) => {
       <div>
         <Main>
           <LogoDiv>
-            <Icon src={logo} alt='logo' />
+            <Icon src={logo} alt="logo" />
             <Title>Projet</Title>
             <SubTitle>Need a project idea? Sign up and get some!</SubTitle>
           </LogoDiv>
           <Box>
-            <Link to="/signup">
-              <Button text='Sign Up' />
-            </Link>
             <Link to="/signin">
-              <Button text='Sign In' />
+              <Button text="Sign In" />
+            </Link>
+            <Link to="/signup">
+              <Button text="Sign Up" />
             </Link>
           </Box>
         </Main>

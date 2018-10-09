@@ -1,5 +1,68 @@
 import React from "react";
 import PropTypes from "prop-types";
+import styled from 'styled-components';
+
+import logo from '../images/rocket.svg';
+
+/**
+ * Styles
+ */
+
+const Block = styled.div`
+  margin: auto;
+  margin-top: 10%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+
+  @media (max-width: 380px) and (max-height: 650px) {
+    width: 80%;
+    margin-top: 30%;
+  }
+`;
+
+const Icon = styled.img`
+  width: 10rem;
+  height: 10rem;
+  margin: auto;
+  margin-bottom: 4rem;
+  @media (max-width: 380px) and (max-height: 650px) {
+    width: 8rem;
+    height: 8rem;
+  }
+`;
+
+const Form = styled.form`
+  margin: 0;
+  padding: 0;
+`;
+
+const Input = styled.input`
+  color: #f1f2f1;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(241, 242, 241, .5);
+  transition: all .3s;
+
+  :focus {
+    outline: none;
+    border-bottom: 1px solid #f1f2f1;
+  }
+
+  @media (max-width: 380px) and (max-height: 650px) {
+    font-size: 1rem;
+    width: 100%;
+  }
+`;
+
+const Button = styled.button`
+  
+`;
+
+/**
+ * Component
+ */
 
 class AuthForm extends React.Component {
   constructor(props) {
@@ -46,14 +109,13 @@ class AuthForm extends React.Component {
     });
 
     return (
-      <div className="auth-page">
-        <h1 className="title">Projet</h1>
-        <form onSubmit={this.handleSubmit} className="form">
+      <Block>
+        <Icon src={logo} alt="logo" />
+        <Form onSubmit={this.handleSubmit}>
           <h2>{heading}</h2>
           {errors.message && <div>{errors.message}</div>}
-          <input
+          <Input
             autoComplete="off"
-            className="form__input"
             type="text"
             placeholder="Email"
             id="email"
@@ -62,14 +124,10 @@ class AuthForm extends React.Component {
             value={email}
             required
           />
-          <label htmlFor="email" className="form__label">
-            Email
-          </label>
           {signUp && (
             <div>
-              <input
+              <Input
                 autoComplete="off"
-                className="form__input"
                 type="text"
                 placeholder="Username"
                 id="username"
@@ -78,14 +136,10 @@ class AuthForm extends React.Component {
                 value={username}
                 required
               />
-              <label htmlFor="username" className="form__label">
-                Username
-              </label>
             </div>
           )}
-          <input
+          <Input
             autoComplete="off"
-            className="form__input"
             type="password"
             placeholder="password"
             id="password"
@@ -94,21 +148,17 @@ class AuthForm extends React.Component {
             value={password}
             required
           />
-          <label htmlFor="password" className="form__label">
-            Password
-          </label>
-          <button className="btn--small" type="submit">
+          <Button type="submit">
             {buttonText}
-          </button>
-        </form>
-      </div>
+          </Button>
+        </Form>
+      </Block>
     );
   }
 }
 
 AuthForm.propTypes = {
   buttonText: PropTypes.string,
-  heading: PropTypes.string,
   history: PropTypes.object,
   onAuth: PropTypes.func,
   removeError: PropTypes.func,
