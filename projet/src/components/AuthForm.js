@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from 'styled-components';
+import FormControl from '@material-ui/core/FormControl';
 
 import logo from '../images/rocket.svg';
 
@@ -10,23 +11,32 @@ import logo from '../images/rocket.svg';
 
 const Block = styled.div`
   margin: auto;
-  margin-top: 10%;
   padding: 1rem;
   display: flex;
   flex-direction: column;
-  width: 50%;
-
-  @media (max-width: 380px) and (max-height: 650px) {
-    width: 80%;
-    margin-top: 30%;
-  }
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
 `;
 
 const Icon = styled.img`
-  width: 10rem;
-  height: 10rem;
+  width: 16.5rem;
+  height: 16.5rem;
   margin: auto;
-  margin-bottom: 4rem;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+
+  @media (max-width: 1200px) {
+    width: 16rem;
+    height: 16rem;
+  }
+
+  @media (max-width: 500px) {
+    width: 10rem;
+    height: 10rem;
+  }
+
   @media (max-width: 380px) and (max-height: 650px) {
     width: 8rem;
     height: 8rem;
@@ -36,13 +46,19 @@ const Icon = styled.img`
 const Form = styled.form`
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
 `;
 
 const Input = styled.input`
+  margin-top: 1rem;
+  padding: .5rem;
   color: #f1f2f1;
   background-color: transparent;
   border: none;
   border-bottom: 1px solid rgba(241, 242, 241, .5);
+  font-size: 2rem;
   transition: all .3s;
 
   :focus {
@@ -50,14 +66,45 @@ const Input = styled.input`
     border-bottom: 1px solid #f1f2f1;
   }
 
+  @media (max-width: 1200px) {
+    font-size: 2.5rem;
+  }
+
+  @media (max-width: 500px) {
+    font-size: 1.6rem;
+  }
+
   @media (max-width: 380px) and (max-height: 650px) {
-    font-size: 1rem;
-    width: 100%;
+    font-size: 1.4rem;
   }
 `;
 
 const Button = styled.button`
-  
+  margin-top: 1.5rem;
+  border: none;
+  text-transform: uppercase;
+  font-family: inherit;
+  font-size: 2.2rem;
+  line-height: 2;
+  font-weight: bold;
+  background: linear-gradient(to right, #f1f2f1 0%, #d2dad2 100%);
+  box-shadow: 0 .25rem 1rem .12rem rgba(3, 2, 2, .54);
+
+  :hover {
+    opacity: 0.5;
+  }
+
+  @media (max-width: 1200px) {
+    font-size: 2.2rem;
+  }
+
+  @media (max-width: 500px) {
+    font-size: 1.5rem;
+  }
+
+  @media (max-width: 380px) and (max-height: 650px) {
+    font-size: 1.5rem;
+  }
 `;
 
 /**
@@ -114,18 +161,20 @@ class AuthForm extends React.Component {
         <Form onSubmit={this.handleSubmit}>
           <h2>{heading}</h2>
           {errors.message && <div>{errors.message}</div>}
-          <Input
-            autoComplete="off"
-            type="text"
-            placeholder="Email"
-            id="email"
-            name="email"
-            onChange={this.handleChange}
-            value={email}
-            required
-          />
+          <FormControl>
+            <Input
+              autoComplete="off"
+              type="text"
+              placeholder="Email"
+              id="email"
+              name="email"
+              onChange={this.handleChange}
+              value={email}
+              required
+            />
+          </FormControl>
           {signUp && (
-            <div>
+            <FormControl>
               <Input
                 autoComplete="off"
                 type="text"
@@ -136,18 +185,20 @@ class AuthForm extends React.Component {
                 value={username}
                 required
               />
-            </div>
+            </FormControl>
           )}
-          <Input
-            autoComplete="off"
-            type="password"
-            placeholder="password"
-            id="password"
-            name="password"
-            onChange={this.handleChange}
-            value={password}
-            required
-          />
+          <FormControl>
+            <Input
+              autoComplete="off"
+              type="password"
+              placeholder="Password"
+              id="password"
+              name="password"
+              onChange={this.handleChange}
+              value={password}
+              required
+            />
+          </FormControl>
           <Button type="submit">
             {buttonText}
           </Button>

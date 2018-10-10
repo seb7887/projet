@@ -6,6 +6,12 @@
   src: local("futura_bt"), url("./font/futura_bt.ttf") format("truetype");
 }
 
+html, body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
 body {
   margin: 0;
   padding: 0;

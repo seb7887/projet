@@ -5,11 +5,12 @@ const Btn = styled.button`
   display: inline-block;
   margin: 1rem;
   text-transform: uppercase;
+  font-family: inherit;
   font-size: 2rem;
   font-weight: bold;
   padding: 1rem 4rem 1rem 4rem;
   border: none;
-  background: linear-gradient(to right, #d2dad2 0%, #f1f2f1 100%);
+  background: linear-gradient(to right, #f1f2f1 0%, #d2dad2 100%);
   color: #313131;
   cursor: pointer;
   transition: all 0.2s;
