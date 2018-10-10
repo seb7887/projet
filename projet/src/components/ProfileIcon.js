@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import Avatar from "@material-ui/core/Avatar";
 import {
   Dropdown,
   DropdownToggle,
@@ -39,11 +40,7 @@ class ProfileIcon extends React.Component {
             data-toggle="dropdown"
             aria-expanded={this.state.dropdownOpen}
           >
-            <img
-              src="http://tachyons.io/img/logo.jpg"
-              className="br-100 h3 w3 dib"
-              alt="avatar"
-            />
+            <Avatar>S</Avatar>
           </DropdownToggle>
           <DropdownMenu
             className="b--transparent shadow-3"

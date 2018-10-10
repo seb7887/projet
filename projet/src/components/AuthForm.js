@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styled from 'styled-components';
-import FormControl from '@material-ui/core/FormControl';
+import styled from "styled-components";
+import FormControl from "@material-ui/core/FormControl";
 
-import logo from '../images/rocket.svg';
+import logo from "../images/rocket.svg";
 
 /**
  * Styles
@@ -53,13 +53,13 @@ const Form = styled.form`
 
 const Input = styled.input`
   margin-top: 1rem;
-  padding: .5rem;
+  padding: 0.5rem;
   color: #f1f2f1;
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid rgba(241, 242, 241, .5);
+  border-bottom: 1px solid rgba(241, 242, 241, 0.5);
   font-size: 2rem;
-  transition: all .3s;
+  transition: all 0.3s;
 
   :focus {
     outline: none;
@@ -88,7 +88,7 @@ const Button = styled.button`
   line-height: 2;
   font-weight: bold;
   background: linear-gradient(to right, #f1f2f1 0%, #d2dad2 100%);
-  box-shadow: 0 .25rem 1rem .12rem rgba(3, 2, 2, .54);
+  box-shadow: 0 0.25rem 1rem 0.12rem rgba(3, 2, 2, 0.54);
 
   :hover {
     opacity: 0.5;
@@ -199,9 +199,7 @@ class AuthForm extends React.Component {
               required
             />
           </FormControl>
-          <Button type="submit">
-            {buttonText}
-          </Button>
+          <Button type="submit">{buttonText}</Button>
         </Form>
       </Block>
     );

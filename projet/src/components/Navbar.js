@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 
 import Header from "./Header";
 import SearchBox from "./SearchBox";
@@ -19,17 +20,33 @@ const navStyles = {
   }
 };
 
+/**
+ * Styles
+ */
+
+const Nav = styled.nav`
+  background: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 6.5rem;
+`;
+
+/**
+ * Component
+ */
+
 class Navbar extends React.Component {
   render() {
     const { searchChange } = this.props;
     return (
-      <div style={navStyles.header}>
+      <Nav>
         <Header />
         <div style={navStyles.buttons}>
           <SearchBox searchChange={searchChange.bind(this)} />
           <ProfileIcon />
         </div>
-      </div>
+      </Nav>
     );
   }
 }

@@ -1,26 +1,27 @@
 import React from "react";
+import styled from "styled-components";
 
-import Logo from "../images/rocket.svg";
+import logo from "../images/rocket.svg";
 
-const headerStyles = {
-  display: "flex",
-  flexDirection: "row",
-  padding: "1rem"
-};
+/**
+ * Styles
+ */
 
-const h1Styles = {
-  textTransform: "uppercase",
-  fontSize: "2rem",
-  letterSpacing: ".5rem",
-  marginLeft: "2rem",
-  marginTop: "1rem"
-};
+const StyledHeader = styled.div`
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
+`;
 
-const logoStyles = {
-  height: "4rem",
-  display: "inline-block",
-  filter: "opacity(.5) drop-shadow(0 0 0 #ffffff)"
-};
+const Logo = styled.img`
+  height: 4rem;
+  display: inline-block;
+  filter: opacity(0.5) drop-shadow(0 0 0 #ffffff);
+`;
+
+/**
+ * Component
+ */
 
 class Header extends React.Component {
   shouldComponentUpdate(nextProps, nextState) {
@@ -29,10 +30,9 @@ class Header extends React.Component {
 
   render() {
     return (
-      <div style={headerStyles}>
-        <img src={Logo} alt="Projet Home" style={logoStyles} />
-        <h1 style={h1Styles}>Projet</h1>
-      </div>
+      <StyledHeader>
+        <Logo src={logo} alt="Projet Home" />
+      </StyledHeader>
     );
   }
 }

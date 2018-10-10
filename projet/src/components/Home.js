@@ -4,11 +4,8 @@ import { connect } from "react-redux";
 import { fetchProjects } from "../store/actions/projects";
 
 import Navbar from "./Navbar";
-import Scroll from "./Scroll";
 import ErrorBoundry from "./ErrorBoundry";
 import ProjectList from "./ProjectList";
-import Modal from "./Modal";
-import ProjectCard from "./ProjectCard";
 
 class Home extends React.Component {
   constructor(props) {
@@ -27,6 +24,7 @@ class Home extends React.Component {
     this.props.fetchProjects();
   }
 
+  // Check
   componentWillUpdate() {
     this.props.fetchProjects();
   }
@@ -60,26 +58,10 @@ class Home extends React.Component {
     const { isProjectOpen, name, idea, features, keywords } = this.state;
     return (
       <div>
-        {isProjectOpen && (
-          <Modal>
-            <ProjectCard
-              name={name}
-              idea={idea}
-              features={features}
-              keywords={keywords}
-              toggleModal={this.toggleModal}
-            />
-          </Modal>
-        )}
         <Navbar searchChange={this.onSearchChange} />
-        <Scroll>
-          <ErrorBoundry>
-            <ProjectList
-              projects={this.filteredProjects()}
-              toggleModal={this.toggleModal}
-            />
-          </ErrorBoundry>
-        </Scroll>
+        <ErrorBoundry>
+          <ProjectList projects={this.filteredProjects()} />
+        </ErrorBoundry>
       </div>
     );
   }
