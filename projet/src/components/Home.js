@@ -25,8 +25,12 @@ class Home extends React.Component {
   }
 
   // Check
-  componentDidUpdate() {
-    this.props.fetchProjects();
+  componentDidUpdate(prevProps) {
+    console.log('This: ' + this.props.projects.length);
+    console.log('Prev: ' + prevProps.projects.length);
+    if (prevProps.projects.length !== this.props.projects.length) {
+      this.props.fetchProjects();
+    }
   }
 
   toggleModal = childProject => {
