@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import IconButton from '@material-ui/core/IconButton';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
+import Drawer from '@material-ui/core/Drawer';
+import Divider from '@material-ui/core/Divider';
 
 import logo from "../images/rocket.svg";
 
@@ -40,17 +40,40 @@ const Logo = styled.img`
  */
 
 class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      top: false,
+      right: false,
+      bottom: false,
+      left: false,
+    }
+  }
+  
   shouldComponentUpdate(nextProps, nextState) {
     return false;
+  }
+
+  toggleDrawer = (side, open) => {
+    this.setState({
+      [side]: open,
+    })
   }
   
   render() {
     return (
       <StyledHeader>
-        <IconButton>
+        <IconButton onClick={this.toggleDrawer('left', true)}>
           <MenuIcon className='material-icons'>menu</MenuIcon>
         </IconButton>
         <Logo src={logo} alt="Projet Home" />
+        <Drawer open={this.state.left} onClose={this.toggleDrawer('left', false)}>
+          <div>
+            <div>Hello</div>
+            <Divider />
+            <div>World</div>
+          </div>
+        </Drawer>
       </StyledHeader>
     );
   }
