@@ -9,10 +9,6 @@ import styled from 'styled-components';
 const Div = styled.div`
   margin: auto;
   margin-right: .5rem;
-
-  @media (max-width: 750px) {
-    display: none;
-  }
 `;
 
 const Input = styled.input`
@@ -25,6 +21,20 @@ const Input = styled.input`
   font-size: 1rem;
   line-height: 1rem;
   outline: none;
+  opacity: .5;
+  transition: all .3s;
+
+  :focus {
+    opacity: 1;
+  }
+
+  @media (max-width: 750px) {
+    width: 18rem;
+  }
+
+  @media (max-width: 480px) {
+    width: 14rem;
+  }
 `;
 
 
