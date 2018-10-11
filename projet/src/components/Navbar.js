@@ -1,8 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import Header from "./Header";
 import SearchBox from "./SearchBox";
+import SearchIcon from "./SearchIcon";
 import ProfileIcon from "./ProfileIcon";
 
 const navStyles = {
@@ -32,6 +34,26 @@ const Nav = styled.nav`
   height: 6.5rem;
 `;
 
+const ButtonPannel = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin-right: 1rem;
+
+  @media (max-width: 750px) {
+    align-self: flex-end;
+  }
+`;
+
+const LinkIcon = styled(Link)`
+  margin: auto;
+  margin-left: .2rem;
+  margin-right .2rem;
+
+  @media (min-width: 750px) {
+    display: none;
+  }
+`;
+
 /**
  * Component
  */
@@ -42,10 +64,13 @@ class Navbar extends React.Component {
     return (
       <Nav>
         <Header />
-        <div style={navStyles.buttons}>
+        <ButtonPannel>
           <SearchBox searchChange={searchChange.bind(this)} />
+          <LinkIcon to="/search">
+            <SearchIcon />
+          </LinkIcon>
           <ProfileIcon />
-        </div>
+        </ButtonPannel>
       </Nav>
     );
   }

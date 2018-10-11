@@ -8,6 +8,7 @@ import withAuth from "../hocs/withAuth";
 import MainPage from "../components/MainPage";
 import AuthForm from "../components/AuthForm";
 import ProjectForm from "../components/ProjectForm";
+import Search from "../components/Search";
 
 const Main = props => {
   const { authUser, errors, currentUser, removeError } = props;
@@ -47,6 +48,15 @@ const Main = props => {
                 buttonText="Sign up"
                 {...props}
               />
+            );
+          }}
+        />
+        <Route 
+          exact
+          path="/search"
+          render={() => {
+            return (
+              <Search />
             );
           }}
         />
