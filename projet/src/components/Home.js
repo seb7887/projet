@@ -25,7 +25,7 @@ class Home extends React.Component {
   }
 
   // Check
-  componentWillUpdate() {
+  componentDidUpdate() {
     this.props.fetchProjects();
   }
 
