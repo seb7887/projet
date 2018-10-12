@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { fetchProjects } from "../store/actions/projects";
 
 import Navbar from "./Navbar";
+import SideSheet from "./SideSheet";
 import ErrorBoundry from "./ErrorBoundry";
 import ProjectList from "./ProjectList";
 
@@ -16,7 +17,8 @@ class Home extends React.Component {
       idea: "",
       features: "",
       keywords: [],
-      searchField: ""
+      searchField: "",
+      left: false,
     };
   }
 
@@ -40,6 +42,12 @@ class Home extends React.Component {
     });
   };
 
+  toggleDrawer = (open) => {
+    this.setState({
+      left: open,
+    });
+  }
+
   onSearchChange = text => {
     this.setState({
       searchField: text
@@ -59,7 +67,11 @@ class Home extends React.Component {
     const { isProjectOpen, name, idea, features, keywords } = this.state;
     return (
       <div>
-        <Navbar searchChange={this.onSearchChange} />
+        <Navbar 
+          searchChange={this.onSearchChange}
+          toggleDrawer={this.toggleDrawer}
+        />
+        <SideSheet open={this.state.left} toggleDrawer={this.toggleDrawer} />
         <ErrorBoundry>
           <ProjectList projects={this.filteredProjects()} />
         </ErrorBoundry>
