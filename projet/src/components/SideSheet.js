@@ -108,7 +108,7 @@ class SideSheet extends React.Component {
           <StyledAvatar>
             <Icon className='material-icons'>person</Icon>
           </StyledAvatar>
-          <Username>Seba</Username>
+          <Username>Welcome</Username>
         </AvatarDiv>
         <Items>
           <List>

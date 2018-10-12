@@ -12,7 +12,6 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isProjectOpen: false,
       name: "",
       idea: "",
       features: "",
@@ -31,16 +30,6 @@ class Home extends React.Component {
       this.props.fetchProjects();
     }
   }
-
-  toggleModal = childProject => {
-    this.setState({
-      isProjectOpen: !this.state.isProjectOpen,
-      name: childProject.name,
-      idea: childProject.idea,
-      features: childProject.features,
-      keywords: childProject.keywords
-    });
-  };
 
   toggleDrawer = (open) => {
     this.setState({
@@ -64,7 +53,6 @@ class Home extends React.Component {
   };
 
   render() {
-    const { isProjectOpen, name, idea, features, keywords } = this.state;
     return (
       <div>
         <Navbar 

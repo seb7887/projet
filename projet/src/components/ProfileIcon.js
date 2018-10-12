@@ -3,12 +3,9 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import styled from 'styled-components';
 import Avatar from "@material-ui/core/Avatar";
-import {
-  Dropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem
-} from "reactstrap";
+import IconButton from '@material-ui/core/IconButton';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
 
 import { logout } from "../store/actions/auth";
 
@@ -26,6 +23,24 @@ const Div = styled.div`
   }
 `;
 
+const StyledAvatar = styled(Avatar)`
+  background: #464646;
+`;
+
+const Icon = styled.i`
+  color: #f1f2f1;
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+
+  &:focus, &:hover, &:visited, &:link, &:active {
+    text-decoration: none;
+    color: inherit;
+  }
+`;
+
 /**
  * Component
  */
@@ -34,47 +49,55 @@ class ProfileIcon extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      dropdownOpen: false
+      anchorEl: null,
     };
   }
-
-  toggle = () => {
-    this.setState({
-      dropdownOpen: !this.state.dropdownOpen
-    });
-  };
 
   logout = e => {
     e.preventDefault();
     this.props.logout();
   };
 
+  handleClick = (e) => {
+    this.setState({
+      anchorEl: e.currentTarget,
+    });
+  }
+
+  handleClose = () => {
+    this.setState({
+      anchorEl: null,
+    });
+  }
+
   render() {
+    const { anchorEl } = this.state;
     return (
       <Div>
-        <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-          <DropdownToggle
-            tag="span"
-            onClick={this.toggle}
-            data-toggle="dropdown"
-            aria-expanded={this.state.dropdownOpen}
-          >
-            <Avatar>S</Avatar>
-          </DropdownToggle>
-          <DropdownMenu
-            className="b--transparent shadow-3"
-            style={{
-              marginTop: "20px",
-              backgroundColor: "rgba(255, 255, 255, 0.5)"
-            }}
-            right
-          >
-            <Link to="/project/new">
-              <DropdownItem>New idea</DropdownItem>
-              <DropdownItem onClick={this.logout}>Sign out</DropdownItem>
-            </Link>
-          </DropdownMenu>
-        </Dropdown>
+        <IconButton
+          onClick={this.handleClick}
+          aria-label="More"
+          aria-owns={anchorEl ? 'simple-menu' : null}
+        >
+          <StyledAvatar>
+            <Icon className="material-icons">person</Icon>
+          </StyledAvatar>
+        </IconButton>
+        <Menu
+          id="simple-menu"
+          anchorEl={anchorEl}
+          open={Boolean(anchorEl)}
+          onClose={this.handleClose}
+        >
+          <MenuItem onClick={this.handleClose}>
+            <StyledLink to="/project/new">
+              New idea
+            </StyledLink>
+          </MenuItem>
+          <MenuItem onClick={this.logout}>
+            Sign out
+          </MenuItem>
+        </Menu>
       </Div>
     );
   }
