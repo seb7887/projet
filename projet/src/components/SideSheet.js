@@ -39,7 +39,7 @@ const StyledAvatar = styled(Avatar)`
   background: #464646;
   width: 5rem !important;
   height: 5rem !important;
-  margin-top: 2rem;
+  margin-top: 1rem;
   margin-left: 1rem;
 `;
 
@@ -49,12 +49,22 @@ const Icon = styled.i`
 `;
 
 const Username = styled.h2`
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: inherit;
   font-family: inherit;
   font-weight: bold;
-  margin-top: .5rem;
+  margin-top: .8rem;
   margin-left: 1rem;
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+
+  &:focus, &:hover, &:visited, &:link, &:active {
+    text-decoration: none;
+    color: inherit;
+  }
 `;
 
 const Items = styled.div`
@@ -62,7 +72,19 @@ const Items = styled.div`
   margin-left: 2rem;
 `;
 
-const Item = styled
+const Item = styled.button`
+  background: transparent;
+  color: inherit !important;
+  font-family: inherit;
+  font-size: 1.5rem;
+  text-decoration: none !important;
+  border: none;
+  cursor: pointer;
+
+  :hover {
+    opacity: .5;
+  }
+`;
 
 /**
  * Component
@@ -90,14 +112,15 @@ class SideSheet extends React.Component {
         </AvatarDiv>
         <Items>
           <List>
-            <Link to="/project/new">
-              <h3>New idea</h3>
-            </Link>
+            <StyledLink to="/project/new">
+              <Item>New idea</Item>
+            </StyledLink>
           </List>
           <Divider />
           <List>
-            <h3 onClick={this.logout}>Sign out</h3>
+            <Item onClick={this.logout}>Sign out</Item>
           </List>
+          <Divider />
         </Items>
       </Sheet>
     );
