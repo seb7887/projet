@@ -12,6 +12,7 @@ import { removeProject } from "../store/actions/projects";
 
 const Grid = styled.div`
   padding: 1rem;
+  margin-top: 6rem;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 20px;
@@ -19,6 +20,7 @@ const Grid = styled.div`
   @media (max-width: 750px) {
     display: flex;
     flex-direction: column;
+    margin-top: 6rem;
   }
 `;
 
