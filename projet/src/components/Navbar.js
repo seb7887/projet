@@ -16,9 +16,22 @@ const Nav = styled.nav`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  position: fixed;
+  width: 100%;
   height: 5.5rem;
   box-shadow: -1px 9px 18px -1px rgba(0, 0, 0, .75);
+  transition: all .3s;
+  top: 0px;
+  z-index: 999;
+
+  @media (max-width: 750px) {
+    position: fixed;
+    top: ${props => props.top || '0px'};
+  }
 `;
+
+const visible = '0px';
+const invisible = '-550px';
 
 const StyledHeader = styled.div`
   display: flex;
@@ -55,11 +68,37 @@ const ButtonPannel = styled.div`
  * Component
  */
 
+let previous = 0;
+
 class Navbar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      show: true,
+    };
+  }
+
+  componentDidMount = () => {
+    window.addEventListener('scroll', this.handleScroll, { passive: true });
+  }
+
+  componentWillUnmount = () => {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+
+  handleScroll = () => {
+    if (window.scrollY > previous) {
+      this.setState({ show: false });
+    } else {
+      this.setState({ show: true });
+    }
+    previous = window.scrollY;
+  }
+
   render() {
     const { searchChange } = this.props;
     return (
-      <Nav>
+      <Nav top={this.state.show ? visible : invisible}>
         <StyledHeader>
           <IconButton onClick={(e) => this.props.toggleDrawer(true)}>
             <MenuIcon className='material-icons'>menu</MenuIcon>
