@@ -26,7 +26,7 @@ const Grid = styled.div`
  * Component
  */
 
-class ProjectList extends React.Component {
+class ProjectList extends React.Component {  
   render() {
     const { projects, removeProject, currentUser } = this.props;
     if (projects.length > 0) {

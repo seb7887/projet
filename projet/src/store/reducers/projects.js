@@ -5,7 +5,7 @@ export const projects = (state = [], action = {}) => {
     case LOAD_PROJECTS:
       return [...action.projects];
     case REMOVE_PROJECT:
-      return state.filter(proj => proj._id !== action._id);
+      return state.filter(proj => proj._id !== action.id);
     default:
       return state;
   }
