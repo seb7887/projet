@@ -10,6 +10,8 @@ import Typography from "@material-ui/core/Typography";
  */
 
 const StyledCard = styled(Card)`
+  display: flex;
+  flex-direction: column;
   cursor: pointer;
   background-color: black !important;
   box-shadow: 0.25rem 0.8rem 1.2rem rgba(0, 0, 0, 0.58) !important;
@@ -23,6 +25,12 @@ const StyledCard = styled(Card)`
   @media (max-width: 500px) {
     margin: 0 1rem 1rem 1rem;
   }
+`;
+
+const Content = styled(CardContent)`
+  display: flex;
+  flex-direction: column;
+  flex-grow: 2;
 `;
 
 const Title = styled(Typography)`
@@ -46,13 +54,23 @@ const Description = styled(Typography)`
   }
 `;
 
+const Actions = styled(CardActions)`
+  flex-grow: 1;
+`;
+
 const Icon = styled.i`
+  align-self: flex-end;
   transition: all 0.3s;
   opacity: 0;
 
   :hover {
     color: red;
     opacity: 1;
+  }
+
+  @media (max-width: 500px) {
+    opacity: 1;
+    color: red;
   }
 `;
 
@@ -64,19 +82,19 @@ const Project = props => {
   const { name, idea, removeProject, isCorrectUser } = props;
   return (
     <StyledCard>
-      <CardContent>
+      <Content>
         <Title gutterBottom variant="headline" component="h2">
           {name}
         </Title>
         <Description component="p">{idea}</Description>
-      </CardContent>
-      <CardActions>
+      </Content>
+      <Actions>
         {isCorrectUser && (
           <Icon onClick={removeProject} className="material-icons">
             delete_outline
           </Icon>
         )}
-      </CardActions>
+      </Actions>
     </StyledCard>
   );
 };
