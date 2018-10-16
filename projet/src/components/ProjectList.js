@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import styled from "styled-components";
 
 import Project from "./Project";
+import Loader from './Loader';
 
 import { removeProject } from "../store/actions/projects";
 
@@ -22,6 +23,12 @@ const Grid = styled.div`
     flex-direction: column;
     margin-top: 6rem;
   }
+`;
+
+const Load = styled.div`
+  margin-top: 18rem;
+  display: flex;
+  justify-content: center;
 `;
 
 /**
@@ -52,7 +59,7 @@ class ProjectList extends React.Component {
         </Grid>
       );
     }
-    return <div>No projects</div>;
+    return <Load><Loader /></Load>
   }
 }
 
