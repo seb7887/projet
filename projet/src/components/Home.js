@@ -25,14 +25,6 @@ class Home extends React.Component {
     this.props.fetchProjects();
   }
 
-  componentDidUpdate(prevProps) {
-    console.log('prev: ' + prevProps.projects.length);
-    console.log('act: ' + this.props.projects.length);
-    if (prevProps.projects.length !== this.props.projects.length) {
-      this.props.fetchProjects();
-    }
-  }
-
   toggleDrawer = (open) => {
     this.setState({
       left: open,
