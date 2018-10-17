@@ -7,6 +7,7 @@ import withAuth from "../hocs/withAuth";
 
 import MainPage from "../components/MainPage";
 import AuthForm from "../components/AuthForm";
+import ProjectCard from "../components/ProjectCard";
 import ProjectForm from "../components/ProjectForm";
 
 const Main = props => {
@@ -50,6 +51,7 @@ const Main = props => {
             );
           }}
         />
+        <Route path="/project/:id" component={ProjectCard} />
         <Route path="/project/new" component={withAuth(ProjectForm)} />
       </Switch>
     </div>

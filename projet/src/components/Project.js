@@ -64,13 +64,13 @@ const Icon = styled.i`
   opacity: 0;
 
   :hover {
-    color: red;
+    color: #df8875;
     opacity: 1;
   }
 
   @media (max-width: 500px) {
     opacity: 1;
-    color: red;
+    color: #df8875;
   }
 `;
 
