@@ -39,6 +39,14 @@ const StyledHeader = styled.div`
   padding: 0.8rem;
 `;
 
+const MenuButton = styled(IconButton)`
+  @media (min-width: 750px) {
+    display: none;
+    cursor: default !important;
+    pointer-events: none !important;
+  }
+`;
+
 const MenuIcon = styled.i`
   color: #f1f2f1;
   font-size: 3rem;
@@ -100,9 +108,9 @@ class Navbar extends React.Component {
     return (
       <Nav top={this.state.show ? visible : invisible}>
         <StyledHeader>
-          <IconButton onClick={e => this.props.toggleDrawer(true)}>
+          <MenuButton onClick={e => this.props.toggleDrawer(true)}>
             <MenuIcon className="material-icons">menu</MenuIcon>
-          </IconButton>
+          </MenuButton>
           <Logo src={logo} alt="Projet Home" />
         </StyledHeader>
         <ButtonPannel>
