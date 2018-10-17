@@ -1,15 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styled from 'styled-components';
+import styled from "styled-components";
 
 /**
  * Styles
  */
 
-const colorBase = '#f1f2f1';
-const colorDone = '#00c896';
-const colorDelete = '#df8875';
-const marginPanel = '2rem';
+const colorBase = "#f1f2f1";
+const colorDone = "#00c896";
+const colorDelete = "#df8875";
+const marginPanel = "2rem";
 
 const Nav = styled.nav`
   background: black;
@@ -19,7 +19,7 @@ const Nav = styled.nav`
   position: fixed;
   width: 100%;
   height: 5.5rem;
-  box-shadow: -1px 9px 18px -1px rgba(0, 0, 0, .75);
+  box-shadow: -1px 9px 18px -1px rgba(0, 0, 0, 0.75);
   top: 0;
   z-index: 999;
 `;
@@ -29,10 +29,10 @@ const Back = styled.i`
   font-size: 3.5rem;
   margin-top: 1rem;
   margin-left: 1rem;
-  transition: all .3s;
+  transition: all 0.3s;
 
   :hover {
-    opacity: .5;
+    opacity: 0.5;
   }
 `;
 
@@ -40,7 +40,11 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   color: inherit;
 
-  &:focus, &:hover, &:visited, &:link, &:active {
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
     text-decoration: none;
     color: inherit;
   }
@@ -95,8 +99,8 @@ const Icon = styled.i`
   font-size: 3rem;
   color: ${props => props.color};
   cursor: pointer;
-  opacity: .75;
-  transition: all .3s;
+  opacity: 0.75;
+  transition: all 0.3s;
 
   :hover {
     opacity: 1;
@@ -129,7 +133,7 @@ const Content = styled.div`
 `;
 
 /**
- * Component 
+ * Component
  */
 
 class ProjectCard extends React.Component {
@@ -142,8 +146,8 @@ class ProjectCard extends React.Component {
 
   handleDone = () => {
     this.setState({ done: !this.state.done });
-  }
-  
+  };
+
   render() {
     return (
       <div>
@@ -152,33 +156,28 @@ class ProjectCard extends React.Component {
             <Back className="material-icons">arrow_back</Back>
           </StyledLink>
           <NavPanel>
-            <Icon 
+            <Icon
               className="material-icons"
               onClick={this.handleDone}
               color={colorBase}
-              margin='0'
+              margin="0"
             >
-              { this.state.done ? 'bookmark' : 'bookmark_border' }
+              {this.state.done ? "bookmark" : "bookmark_border"}
             </Icon>
-            <Icon
-              className="material-icons"
-              color={colorBase}
-              margin='0'
-            >
+            <Icon className="material-icons" color={colorBase} margin="0">
               delete_outline
             </Icon>
-          
           </NavPanel>
         </Nav>
         <Container>
           <Panel>
-            <Icon 
+            <Icon
               className="material-icons"
               onClick={this.handleDone}
               color={colorDone}
               margin={marginPanel}
             >
-              { this.state.done ? 'bookmark' : 'bookmark_border' }
+              {this.state.done ? "bookmark" : "bookmark_border"}
             </Icon>
             <Icon
               className="material-icons"
@@ -190,11 +189,31 @@ class ProjectCard extends React.Component {
           </Panel>
           <Name>Name</Name>
           <Content>
-            <p><strong>Idea:</strong> blabla blablablabal</p>
-            <p><strong>Features:</strong>Lorem ipsum dolor sit amet, brute mediocritatem no ius, ei sit dictas alienum. Eripuit volumus intellegam mel ea. Has ut dicta molestiae honestatis. Qui facer congue ei, mei no dissentiet comprehensam. Vero altera ei cum.
-            Sed equidem indoctum ut, id quis consul legimus quo, duo quod mazim persius ei. Alia viderer ancillae ut mea, mel cu amet qualisque erroribus. Insolens voluptaria necessitatibus in mea, ne usu animal utamur vituperata. Te mea liber possit, nihil everti at est, possit oporteat ut mei. Eos scripta dolores disputationi eu, an stet commodo habemus sea, luptatum forensibus te nec. Per meis graeci suscipiantur et, sit putant expetenda te.
-            Ut eos timeam equidem. Ut vel mutat facilis, mel quidam concludaturque ea, sed in labores democritum sadipscing. Eu est appareat indoctum, vel utamur legendos ad. Oratio nostro ceteros ne mei. Ius cu phaedrum liberavisse consectetuer, in wisi iuvaret aliquam eos, quo quas gloriatur ex.
-            Legimus disputationi per ad. Munere periculis ad sea, ad exerci integre evertitur sit. Simul tritani albucius id vix, nostro vivendo vel ex. Cu quo reque rationibus, nonumy mucius equidem cum ex, at laudem expetenda cotidieque sit. Clita feugait no est, ea purto scribentur vim, solum nemore detracto ex sed.
+            <p>
+              <strong>Idea:</strong> blabla blablablabal
+            </p>
+            <p>
+              <strong>Features:</strong>
+              Lorem ipsum dolor sit amet, brute mediocritatem no ius, ei sit
+              dictas alienum. Eripuit volumus intellegam mel ea. Has ut dicta
+              molestiae honestatis. Qui facer congue ei, mei no dissentiet
+              comprehensam. Vero altera ei cum. Sed equidem indoctum ut, id quis
+              consul legimus quo, duo quod mazim persius ei. Alia viderer
+              ancillae ut mea, mel cu amet qualisque erroribus. Insolens
+              voluptaria necessitatibus in mea, ne usu animal utamur vituperata.
+              Te mea liber possit, nihil everti at est, possit oporteat ut mei.
+              Eos scripta dolores disputationi eu, an stet commodo habemus sea,
+              luptatum forensibus te nec. Per meis graeci suscipiantur et, sit
+              putant expetenda te. Ut eos timeam equidem. Ut vel mutat facilis,
+              mel quidam concludaturque ea, sed in labores democritum
+              sadipscing. Eu est appareat indoctum, vel utamur legendos ad.
+              Oratio nostro ceteros ne mei. Ius cu phaedrum liberavisse
+              consectetuer, in wisi iuvaret aliquam eos, quo quas gloriatur ex.
+              Legimus disputationi per ad. Munere periculis ad sea, ad exerci
+              integre evertitur sit. Simul tritani albucius id vix, nostro
+              vivendo vel ex. Cu quo reque rationibus, nonumy mucius equidem cum
+              ex, at laudem expetenda cotidieque sit. Clita feugait no est, ea
+              purto scribentur vim, solum nemore detracto ex sed.
             </p>
           </Content>
         </Container>

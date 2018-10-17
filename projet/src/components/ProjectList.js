@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import Project from "./Project";
-import Loader from './Loader';
+import Loader from "./Loader";
 
 import { removeProject } from "../store/actions/projects";
 
@@ -30,7 +30,11 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   color: inherit;
 
-  &:focus, &:hover, &:visited, &:link, &:active {
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
     text-decoration: none;
     color: inherit;
   }
@@ -46,9 +50,9 @@ const Load = styled.div`
  * Component
  */
 
-class ProjectList extends React.Component {  
+class ProjectList extends React.Component {
   render() {
-    const { projects, removeProject, currentUser } = this.props;   
+    const { projects, removeProject, currentUser } = this.props;
     if (projects.length > 0) {
       return (
         <Grid>
@@ -73,7 +77,11 @@ class ProjectList extends React.Component {
         </Grid>
       );
     }
-    return <Load><Loader /></Load>
+    return (
+      <Load>
+        <Loader />
+      </Load>
+    );
   }
 }
 

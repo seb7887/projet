@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import styled from 'styled-components';
-import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
-import Divider from '@material-ui/core/Divider';
-import List from '@material-ui/core/List';
-import Avatar from '@material-ui/core/Avatar';
+import styled from "styled-components";
+import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
+import Divider from "@material-ui/core/Divider";
+import List from "@material-ui/core/List";
+import Avatar from "@material-ui/core/Avatar";
 
 import { logout } from "../store/actions/auth";
 
@@ -30,7 +30,7 @@ const Sheet = styled.div`
 const AvatarDiv = styled.div`
   background: black;
   height: 25%;
-  box-shadow: -1px 4px 12px -1px rgba(0, 0, 0, .75);
+  box-shadow: -1px 4px 12px -1px rgba(0, 0, 0, 0.75);
   padding: 1rem;
   margin: auto;
 `;
@@ -53,7 +53,7 @@ const Username = styled.h2`
   color: inherit;
   font-family: inherit;
   font-weight: bold;
-  margin-top: .8rem;
+  margin-top: 0.8rem;
   margin-left: 1rem;
 `;
 
@@ -61,7 +61,11 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   color: inherit;
 
-  &:focus, &:hover, &:visited, &:link, &:active {
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
     text-decoration: none;
     color: inherit;
   }
@@ -82,7 +86,7 @@ const Item = styled.button`
   cursor: pointer;
 
   :hover {
-    opacity: .5;
+    opacity: 0.5;
   }
 `;
 
@@ -91,22 +95,22 @@ const Item = styled.button`
  */
 
 class SideSheet extends React.Component {
-  toggleDrawer = (open) => {
+  toggleDrawer = open => {
     this.props.toggleDrawer(open);
-  }
+  };
 
   logout = e => {
     e.preventDefault();
     this.props.logout();
-  }
-  
+  };
+
   render() {
     const { open } = this.props;
     const sideList = (
       <Sheet>
         <AvatarDiv>
           <StyledAvatar>
-            <Icon className='material-icons'>person</Icon>
+            <Icon className="material-icons">person</Icon>
           </StyledAvatar>
           <Username>Welcome</Username>
         </AvatarDiv>
@@ -128,12 +132,10 @@ class SideSheet extends React.Component {
     return (
       <SwipeableDrawer
         open={open}
-        onClose={(e) => this.toggleDrawer(false)}
-        onOpen={(e) => this.toggleDrawer(true)}
+        onClose={e => this.toggleDrawer(false)}
+        onOpen={e => this.toggleDrawer(true)}
       >
-        <div>
-          {sideList}
-        </div>
+        <div>{sideList}</div>
       </SwipeableDrawer>
     );
   }
@@ -145,4 +147,7 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { logout })(SideSheet);
+export default connect(
+  mapStateToProps,
+  { logout }
+)(SideSheet);

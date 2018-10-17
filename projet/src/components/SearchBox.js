@@ -1,6 +1,6 @@
 import React from "react";
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import PropTypes from "prop-types";
+import styled from "styled-components";
 
 /**
  * Styles
@@ -8,7 +8,7 @@ import styled from 'styled-components';
 
 const Div = styled.div`
   margin: auto;
-  margin-right: .5rem;
+  margin-right: 0.5rem;
 `;
 
 const Input = styled.input`
@@ -21,8 +21,8 @@ const Input = styled.input`
   font-size: 1rem;
   line-height: 1rem;
   outline: none;
-  opacity: .5;
-  transition: all .3s;
+  opacity: 0.5;
+  transition: all 0.3s;
 
   :focus {
     opacity: 1;
@@ -36,7 +36,6 @@ const Input = styled.input`
     width: 14rem;
   }
 `;
-
 
 /**
  * Component
@@ -62,7 +61,7 @@ class SearchBox extends React.Component {
 }
 
 SearchBox.propTypes = {
-  searchChange: PropTypes.func,
-}
+  searchChange: PropTypes.func
+};
 
 export default SearchBox;

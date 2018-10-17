@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import styled from 'styled-components';
+import styled from "styled-components";
 import Avatar from "@material-ui/core/Avatar";
-import IconButton from '@material-ui/core/IconButton';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
+import IconButton from "@material-ui/core/IconButton";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
 
 import { logout } from "../store/actions/auth";
 
@@ -15,8 +15,8 @@ import { logout } from "../store/actions/auth";
 
 const Div = styled.div`
   margin: auto;
-  margin-left: .5rem;
-  margin-right: .5rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 
   @media (max-width: 750px) {
     display: none;
@@ -35,7 +35,11 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   color: inherit;
 
-  &:focus, &:hover, &:visited, &:link, &:active {
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
     text-decoration: none;
     color: inherit;
   }
@@ -49,7 +53,7 @@ class ProfileIcon extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      anchorEl: null,
+      anchorEl: null
     };
   }
 
@@ -58,17 +62,17 @@ class ProfileIcon extends React.Component {
     this.props.logout();
   };
 
-  handleClick = (e) => {
+  handleClick = e => {
     this.setState({
-      anchorEl: e.currentTarget,
+      anchorEl: e.currentTarget
     });
-  }
+  };
 
   handleClose = () => {
     this.setState({
-      anchorEl: null,
+      anchorEl: null
     });
-  }
+  };
 
   render() {
     const { anchorEl } = this.state;
@@ -77,7 +81,7 @@ class ProfileIcon extends React.Component {
         <IconButton
           onClick={this.handleClick}
           aria-label="More"
-          aria-owns={anchorEl ? 'simple-menu' : null}
+          aria-owns={anchorEl ? "simple-menu" : null}
         >
           <StyledAvatar>
             <Icon className="material-icons">person</Icon>
@@ -90,13 +94,9 @@ class ProfileIcon extends React.Component {
           onClose={this.handleClose}
         >
           <MenuItem onClick={this.handleClose}>
-            <StyledLink to="/project/new">
-              New idea
-            </StyledLink>
+            <StyledLink to="/project/new">New idea</StyledLink>
           </MenuItem>
-          <MenuItem onClick={this.logout}>
-            Sign out
-          </MenuItem>
+          <MenuItem onClick={this.logout}>Sign out</MenuItem>
         </Menu>
       </Div>
     );

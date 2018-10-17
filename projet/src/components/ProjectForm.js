@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import styled from 'styled-components';
+import styled from "styled-components";
 import FormControl from "@material-ui/core/FormControl";
 
 import { postNewProject } from "../store/actions/projects";
@@ -13,7 +13,7 @@ import { postNewProject } from "../store/actions/projects";
 const Nav = styled.nav`
   background: black;
   height: 5.5rem;
-  box-shadow: -1px 9px 18px -1px rgba(0, 0, 0, .75);
+  box-shadow: -1px 9px 18px -1px rgba(0, 0, 0, 0.75);
 `;
 
 const Back = styled.i`
@@ -21,10 +21,10 @@ const Back = styled.i`
   font-size: 3.5rem;
   margin-top: 1rem;
   margin-left: 1rem;
-  transition: all .3s;
+  transition: all 0.3s;
 
   :hover {
-    opacity: .5;
+    opacity: 0.5;
   }
 `;
 
@@ -32,7 +32,11 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   color: inherit;
 
-  &:focus, &:hover, &:visited, &:link, &:active {
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
     text-decoration: none;
     color: inherit;
   }
@@ -89,9 +93,9 @@ const Field = styled.textarea`
   padding: 0.5rem;
   background-color: transparent;
   color: #f1f2f1;
-  border: 1px solid rgba(241, 242, 241, .5);
+  border: 1px solid rgba(241, 242, 241, 0.5);
   font-size: 1.5rem;
-  transition: all .3s;
+  transition: all 0.3s;
 
   :focus {
     outline: none;
@@ -169,7 +173,9 @@ class ProjectForm extends React.Component {
         </Nav>
         <Block>
           <Form onSubmit={this.handleNewProject}>
-            {this.props.errors.message && <div>{this.props.errors.message}</div>}
+            {this.props.errors.message && (
+              <div>{this.props.errors.message}</div>
+            )}
             <FormControl>
               <Input
                 autoComplete="off"
@@ -220,7 +226,7 @@ class ProjectForm extends React.Component {
                 onChange={e =>
                   this.setState({ keywords: e.target.value.replace(" ", "") })
                 }
-                style={{ fontSize: '1.5rem'}}
+                style={{ fontSize: "1.5rem" }}
                 required
               />
             </FormControl>

@@ -17,7 +17,7 @@ class Home extends React.Component {
       features: "",
       keywords: [],
       searchField: "",
-      left: false,
+      left: false
     };
   }
 
@@ -25,11 +25,11 @@ class Home extends React.Component {
     this.props.fetchProjects();
   }
 
-  toggleDrawer = (open) => {
+  toggleDrawer = open => {
     this.setState({
-      left: open,
+      left: open
     });
-  }
+  };
 
   onSearchChange = text => {
     this.setState({
@@ -49,7 +49,7 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-        <Navbar 
+        <Navbar
           searchChange={this.onSearchChange}
           toggleDrawer={this.toggleDrawer}
         />
