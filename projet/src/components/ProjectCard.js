@@ -117,7 +117,8 @@ const Name = styled.div`
   justify-content: center;
 
   @media (max-width: 750px) {
-    font-size: 2.5rem;
+    font-size: 2rem;
+    letter-spacing: .5rem;
   }
 `;
 
