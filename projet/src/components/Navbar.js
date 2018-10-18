@@ -104,7 +104,7 @@ class Navbar extends React.Component {
   };
 
   render() {
-    const { searchChange } = this.props;
+    const { searchChange, randomProject } = this.props;
     return (
       <Nav top={this.state.show ? visible : invisible}>
         <StyledHeader>
@@ -115,7 +115,7 @@ class Navbar extends React.Component {
         </StyledHeader>
         <ButtonPannel>
           <SearchBox searchChange={searchChange.bind(this)} />
-          <ProfileIcon />
+          <ProfileIcon randomProject={randomProject.bind(this)} />
         </ButtonPannel>
       </Nav>
     );

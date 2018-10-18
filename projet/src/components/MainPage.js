@@ -133,30 +133,41 @@ const Box = styled.div`
  * Component
  */
 
-const MainPage = ({ currentUser, getSingleProject }) => {
-  if (!currentUser.isAuthenticated) {
-    return (
-      <div>
-        <Main>
-          <LogoDiv>
-            <Icon src={logo} alt="logo" />
-            <Title>Projet</Title>
-            <SubTitle>Need a project idea? Sign up and get some!</SubTitle>
-          </LogoDiv>
-          <Box>
-            <Link to="/signin">
-              <Button text="Sign In" />
-            </Link>
-            <Link to="/signup">
-              <Button text="Sign Up" />
-            </Link>
-          </Box>
-        </Main>
-        <Footer />
-      </div>
-    );
+class MainPage extends React.Component {
+  randomProject = (proj) => {
+    this.props.getSingleProject(proj);
+    this.props.history.push(`/user/project/${proj._id}`);
   }
-  return <Home getSingleProject={getSingleProject} />;
-};
+  
+  render() {
+    const { currentUser, getSingleProject } = this.props;
+    if (!currentUser.isAuthenticated) {
+      return (
+        <div>
+          <Main>
+            <LogoDiv>
+              <Icon src={logo} alt="logo" />
+              <Title>Projet</Title>
+              <SubTitle>Need a project idea? Sign up and get some!</SubTitle>
+            </LogoDiv>
+            <Box>
+              <Link to="/signin">
+                <Button text="Sign In" />
+              </Link>
+              <Link to="/signup">
+                <Button text="Sign Up" />
+              </Link>
+            </Box>
+          </Main>
+          <Footer />
+        </div>
+      );
+    }
+    return <Home 
+              getSingleProject={getSingleProject} {...this.props}
+              randomProject={this.randomProject}
+           />;
+  }
+}
 
 export default MainPage;

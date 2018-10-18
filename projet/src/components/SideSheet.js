@@ -105,7 +105,7 @@ class SideSheet extends React.Component {
   };
 
   render() {
-    const { open } = this.props;
+    const { open, randomProject } = this.props;
     const sideList = (
       <Sheet>
         <AvatarDiv>
@@ -119,6 +119,10 @@ class SideSheet extends React.Component {
             <StyledLink to="/project/new">
               <Item>New idea</Item>
             </StyledLink>
+          </List>
+          <Divider />
+          <List>
+            <Item onClick={randomProject}>Get an Idea!</Item>
           </List>
           <Divider />
           <List>

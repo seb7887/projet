@@ -12,10 +12,6 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
-      idea: "",
-      features: "",
-      keywords: [],
       searchField: "",
       left: false
     };
@@ -50,14 +46,25 @@ class Home extends React.Component {
     return this.props.projects;
   };
 
+  randomProject = () => {
+    let index = Math.floor(Math.random() * this.props.projects.length);
+    let randomProject = this.props.projects[index];
+    this.props.randomProject(randomProject);
+  }
+
   render() {
     return (
       <div>
         <Navbar
           searchChange={this.onSearchChange}
           toggleDrawer={this.toggleDrawer}
+          randomProject={this.randomProject}
         />
-        <SideSheet open={this.state.left} toggleDrawer={this.toggleDrawer} />
+        <SideSheet 
+          open={this.state.left}
+          toggleDrawer={this.toggleDrawer}
+          randomProject={this.randomProject}
+        />
         <ErrorBoundry>
           <ProjectList 
             projects={this.filteredProjects()}

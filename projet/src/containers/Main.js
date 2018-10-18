@@ -25,7 +25,7 @@ class Main extends React.Component {
   getSingleProject = (proj) => {
     this.setState({ project: proj });
   }
-  
+
   render() {
     const { authUser, errors, currentUser, removeError } = this.props;
     return (
