@@ -8,7 +8,6 @@ import styled from "styled-components";
 
 const colorBase = "#f1f2f1";
 const colorDone = "#00c896";
-const colorDelete = "#df8875";
 const marginPanel = "2rem";
 
 const Nav = styled.nav`
@@ -150,7 +149,7 @@ class ProjectCard extends React.Component {
   };
 
   render() {
-    const { project, isCorrectUser } = this.props;
+    const { project } = this.props;
     return (
       <div>
         <Nav>
@@ -166,11 +165,6 @@ class ProjectCard extends React.Component {
             >
               {this.state.done ? "bookmark" : "bookmark_border"}
             </Icon>
-            { isCorrectUser &&
-              <Icon className="material-icons" color={colorBase} margin="0">
-                delete_outline
-              </Icon>
-            }
           </NavPanel>
         </Nav>
         <Container>
@@ -183,15 +177,6 @@ class ProjectCard extends React.Component {
             >
               {this.state.done ? "bookmark" : "bookmark_border"}
             </Icon>
-            { isCorrectUser &&
-              <Icon
-                className="material-icons"
-                color={colorDelete}
-                margin={marginPanel}
-              >
-                delete_outline
-              </Icon>
-            }
           </Panel>
           <Name>{this.props.project.name}</Name>
           <Content>

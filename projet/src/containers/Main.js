@@ -10,6 +10,10 @@ import AuthForm from "../components/AuthForm";
 import ProjectCard from "../components/ProjectCard";
 import ProjectForm from "../components/ProjectForm";
 
+/**
+ * Component
+ */
+
 class Main extends React.Component {
   constructor(props) {
     super(props);
@@ -71,18 +75,21 @@ class Main extends React.Component {
           />
           <Route 
             exact
-            path="/project/:id"
+            path="/user/project/:id"
             render={props => {
               return (
                 <ProjectCard
-                  isCorrectUser={currentUser.user.id == this.state.project.user}
                   project={this.state.project}
                   {...props}
                 />
               );
             }} 
           />
-          <Route path="/project/new" component={withAuth(ProjectForm)} />
+          <Route 
+            exact
+            path="/project/new"
+            component={withAuth(ProjectForm)}
+          />
         </Switch>
       </div>
     );

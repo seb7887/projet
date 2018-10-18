@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import Project from "./Project";
@@ -26,20 +25,6 @@ const Grid = styled.div`
   }
 `;
 
-const StyledLink = styled(Link)`
-  text-decoration: none;
-  color: inherit;
-
-  &:focus,
-  &:hover,
-  &:visited,
-  &:link,
-  &:active {
-    text-decoration: none;
-    color: inherit;
-  }
-`;
-
 const Load = styled.div`
   margin-top: 18rem;
   display: flex;
@@ -57,21 +42,18 @@ class ProjectList extends React.Component {
       return (
         <Grid>
           {projects.map(project => {
-            let path = `/project/${project._id}`;
             return (
-              <StyledLink to={path}>
-                <Project
-                  key={project._id}
-                  project={project}
-                  getSingleProject={getSingleProject.bind(this, project)}
-                  isCorrectUser={currentUser === project.user}
-                  removeProject={removeProject.bind(
-                    this,
-                    project.user,
-                    project._id
-                  )}
-                />
-              </StyledLink>
+              <Project
+                key={project._id}
+                project={project}
+                getSingleProject={getSingleProject.bind(this, project)}
+                isCorrectUser={currentUser === project.user}
+                removeProject={removeProject.bind(
+                  this,
+                  project.user,
+                  project._id
+                )}
+              />
             );
           })}
         </Grid>
