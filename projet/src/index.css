@@ -1,5 +1,210 @@
+@font-face {
+  font-display: swap;
+  font-family: "Futura BT";
+  font-style: normal;
+  font-weight: normal;
+  src: local("futura_bt"), url("./font/futura_bt.ttf") format("truetype");
+}
+
+html,
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: "Futura BT", sans-serif;
+  background: linear-gradient(to right, #000000 0%, #313131 100%);
+  color: #f1f2f1;
+}
+
+body::-webkit-scrollbar {
+  width: 1rem;
+}
+
+body::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #1a1515;
+  border-radius: 10px;
+}
+
+.main-page {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  padding: 1rem;
+  text-align: center;
+}
+
+.main-page__bar {
+  width: 20rem;
+  height: 12rem;
+  padding: 1rem;
+  background-color: #1a1515;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.8);
+  border: 2px solid black;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 5rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5rem;
+  background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.btn {
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  padding: 1.5rem 4rem;
+  font-size: 2rem;
+  position: relative;
+  display: inline-block;
+  background-color: #000000;
+  color: #fdfcfb;
+  transition: all 0.7s;
+}
+
+.btn:hover {
+  cursor: pointer;
+  background-color: #1f1f20e8;
+}
+
+.add-btn {
+  text-decoration: none;
+  width: 8rem;
+  height: 2.5rem;
+  margin-top: 2.5rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.btn--small {
+  height: 3rem;
+  width: 11rem;
+  text-transform: uppercase;
+  font-size: 2rem;
+  background-color: #000000;
+  border: none;
+  border-radius: 8px;
+  color: #fdfcfb;
+  transition: all 0.7s;
+}
+
+.btn--small:hover {
+  cursor: pointer;
+  background-color: #1f1f20e8;
+}
+
+.auth-page {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.auth-page .title {
+  text-align: center;
+}
+
+.auth-page h2 {
+  text-align: center;
+}
+
+.auth-page .btn--small {
+  transform: translateX(15rem);
+}
+
+.form {
+  padding: 0.5rem;
+}
+
+.form__input {
+  font-size: 1.2rem;
+  padding: 1.2rem 2rem;
+  background-color: #fdfcfb;
+  border: none;
+  border-radius: 2px;
+  width: 90%;
+  display: block;
+  transition: all 0.3s;
+}
+
+.form__input:placeholder-shown + .form__label {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4rem);
+}
+
+.form__input:focus {
+  outline: none;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.9);
+}
+
+.form__label {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-left: 2rem;
+  margin-top: 0.7rem;
+  display: block;
+  transition: all 0.3s;
+}
+
+#modal-root {
+  position: relative;
+  z-index: 999;
+}
+
+.search {
+  margin-right: 1rem;
+  margin-top: 2.5rem;
+}
+
+.search__text {
+  width: 2.5rem;
+  height: 2rem;
+  background: none;
+  background-image: url("./images/search.png");
+  background-repeat: no-repeat;
+  border: none;
+  font-size: 1rem;
+  line-height: 1rem;
+
+  transition: all 0.25s ease-in 0.25s;
+  color: transparent;
+}
+
+.search__text:hover {
+  cursor: pointer;
+}
+
+.search__text:focus {
+  cursor: text;
+  background: none;
+  border-bottom: 1px solid #fdfcfb;
+  width: 25rem;
+  outline: none;
+  color: #fdfcfb;
+}
+
+.search__text:hover + span {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+#modal-root {
+  position: relative;
+  z-index: 999;
 }
