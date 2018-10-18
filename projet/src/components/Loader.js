@@ -1,7 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import CircularProgress from '@material-ui/core/CircularProgress';
-
+import React from "react";
+import styled from "styled-components";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 /**
  * Styles
@@ -19,9 +18,7 @@ const LoaderDiv = styled(CircularProgress)`
  */
 
 const Loader = () => {
-  return (
-    <LoaderDiv />
-  );
-}
+  return <LoaderDiv />;
+};
 
 export default Loader;

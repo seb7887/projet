@@ -17,7 +17,7 @@ class Home extends React.Component {
       features: "",
       keywords: [],
       searchField: "",
-      left: false,
+      left: false
     };
   }
 
@@ -25,17 +25,21 @@ class Home extends React.Component {
     this.props.fetchProjects();
   }
 
-  toggleDrawer = (open) => {
+  toggleDrawer = open => {
     this.setState({
-      left: open,
+      left: open
     });
-  }
+  };
 
   onSearchChange = text => {
     this.setState({
       searchField: text
     });
   };
+
+  getSingleProject = (project) => {
+    this.props.getSingleProject(project);
+  }
 
   filteredProjects = () => {
     if (this.state.searchField.length > 0) {
@@ -49,13 +53,16 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-        <Navbar 
+        <Navbar
           searchChange={this.onSearchChange}
           toggleDrawer={this.toggleDrawer}
         />
         <SideSheet open={this.state.left} toggleDrawer={this.toggleDrawer} />
         <ErrorBoundry>
-          <ProjectList projects={this.filteredProjects()} />
+          <ProjectList 
+            projects={this.filteredProjects()}
+            getSingleProject={this.getSingleProject}
+          />
         </ErrorBoundry>
       </div>
     );

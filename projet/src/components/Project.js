@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
@@ -24,6 +25,20 @@ const StyledCard = styled(Card)`
 
   @media (max-width: 500px) {
     margin: 0 1rem 1rem 1rem;
+  }
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+    color: inherit;
   }
 `;
 
@@ -64,13 +79,13 @@ const Icon = styled.i`
   opacity: 0;
 
   :hover {
-    color: red;
+    color: #df8875;
     opacity: 1;
   }
 
   @media (max-width: 500px) {
     opacity: 1;
-    color: red;
+    color: #df8875;
   }
 `;
 
@@ -79,15 +94,18 @@ const Icon = styled.i`
  */
 
 const Project = props => {
-  const { name, idea, removeProject, isCorrectUser } = props;
+  const { project, removeProject, isCorrectUser, getSingleProject } = props;
+  let path = `/user/project/${project._id}`;
   return (
     <StyledCard>
-      <Content>
-        <Title gutterBottom variant="headline" component="h2">
-          {name}
-        </Title>
-        <Description component="p">{idea}</Description>
-      </Content>
+      <StyledLink to={path}>
+        <Content onClick={() => getSingleProject({ project }) }>
+          <Title gutterBottom variant="headline" component="h2">
+            {project.name}
+          </Title>
+          <Description component="p">{project.idea}</Description>
+        </Content>
+      </StyledLink>
       <Actions>
         {isCorrectUser && (
           <Icon onClick={removeProject} className="material-icons">

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import IconButton from '@material-ui/core/IconButton';
+import IconButton from "@material-ui/core/IconButton";
 
 import SearchBox from "./SearchBox";
 import ProfileIcon from "./ProfileIcon";
@@ -19,24 +19,32 @@ const Nav = styled.nav`
   position: fixed;
   width: 100%;
   height: 5.5rem;
-  box-shadow: -1px 9px 18px -1px rgba(0, 0, 0, .75);
-  transition: all .3s;
+  box-shadow: -1px 9px 18px -1px rgba(0, 0, 0, 0.75);
+  transition: all 0.3s;
   top: 0px;
   z-index: 999;
 
   @media (max-width: 750px) {
     position: fixed;
-    top: ${props => props.top || '0px'};
+    top: ${props => props.top || "0px"};
   }
 `;
 
-const visible = '0px';
-const invisible = '-550px';
+const visible = "0px";
+const invisible = "-550px";
 
 const StyledHeader = styled.div`
   display: flex;
   flex-direction: row;
-  padding: .8rem;
+  padding: 0.8rem;
+`;
+
+const MenuButton = styled(IconButton)`
+  @media (min-width: 750px) {
+    display: none;
+    cursor: default !important;
+    pointer-events: none !important;
+  }
 `;
 
 const MenuIcon = styled.i`
@@ -74,17 +82,17 @@ class Navbar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      show: true,
+      show: true
     };
   }
 
   componentDidMount = () => {
-    window.addEventListener('scroll', this.handleScroll, { passive: true });
-  }
+    window.addEventListener("scroll", this.handleScroll, { passive: true });
+  };
 
   componentWillUnmount = () => {
-    window.removeEventListener('scroll', this.handleScroll);
-  }
+    window.removeEventListener("scroll", this.handleScroll);
+  };
 
   handleScroll = () => {
     if (window.scrollY > previous) {
@@ -93,16 +101,16 @@ class Navbar extends React.Component {
       this.setState({ show: true });
     }
     previous = window.scrollY;
-  }
+  };
 
   render() {
     const { searchChange } = this.props;
     return (
       <Nav top={this.state.show ? visible : invisible}>
         <StyledHeader>
-          <IconButton onClick={(e) => this.props.toggleDrawer(true)}>
-            <MenuIcon className='material-icons'>menu</MenuIcon>
-          </IconButton>
+          <MenuButton onClick={e => this.props.toggleDrawer(true)}>
+            <MenuIcon className="material-icons">menu</MenuIcon>
+          </MenuButton>
           <Logo src={logo} alt="Projet Home" />
         </StyledHeader>
         <ButtonPannel>

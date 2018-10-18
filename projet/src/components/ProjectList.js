@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import styled from "styled-components";
 
 import Project from "./Project";
-import Loader from './Loader';
+import Loader from "./Loader";
 
 import { removeProject } from "../store/actions/projects";
 
@@ -35,9 +35,9 @@ const Load = styled.div`
  * Component
  */
 
-class ProjectList extends React.Component {  
+class ProjectList extends React.Component {
   render() {
-    const { projects, removeProject, currentUser } = this.props;
+    const { projects, removeProject, currentUser, getSingleProject } = this.props;
     if (projects.length > 0) {
       return (
         <Grid>
@@ -45,8 +45,8 @@ class ProjectList extends React.Component {
             return (
               <Project
                 key={project._id}
-                name={project.name}
-                idea={project.idea}
+                project={project}
+                getSingleProject={getSingleProject.bind(this, project)}
                 isCorrectUser={currentUser === project.user}
                 removeProject={removeProject.bind(
                   this,
@@ -59,7 +59,11 @@ class ProjectList extends React.Component {
         </Grid>
       );
     }
-    return <Load><Loader /></Load>
+    return (
+      <Load>
+        <Loader />
+      </Load>
+    );
   }
 }
 
