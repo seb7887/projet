@@ -79,9 +79,9 @@ const Icon = styled.i`
  */
 
 const Project = props => {
-  const { name, idea, removeProject, isCorrectUser } = props;
+  const { name, idea, features, keywords, removeProject, isCorrectUser, getSingleProject } = props;
   return (
-    <StyledCard>
+    <StyledCard onClick={() => getSingleProject({ name, idea, features, keywords }) }>
       <Content>
         <Title gutterBottom variant="headline" component="h2">
           {name}

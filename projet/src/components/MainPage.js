@@ -133,7 +133,7 @@ const Box = styled.div`
  * Component
  */
 
-const MainPage = ({ currentUser }) => {
+const MainPage = ({ currentUser, getSingleProject }) => {
   if (!currentUser.isAuthenticated) {
     return (
       <div>
@@ -156,7 +156,7 @@ const MainPage = ({ currentUser }) => {
       </div>
     );
   }
-  return <Home />;
+  return <Home getSingleProject={getSingleProject} />;
 };
 
 export default MainPage;

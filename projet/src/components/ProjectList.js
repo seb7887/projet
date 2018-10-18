@@ -52,7 +52,7 @@ const Load = styled.div`
 
 class ProjectList extends React.Component {
   render() {
-    const { projects, removeProject, currentUser } = this.props;
+    const { projects, removeProject, currentUser, getSingleProject } = this.props;
     if (projects.length > 0) {
       return (
         <Grid>
@@ -64,6 +64,9 @@ class ProjectList extends React.Component {
                   key={project._id}
                   name={project.name}
                   idea={project.idea}
+                  features={project.features}
+                  keywords={project.keywords}
+                  getSingleProject={getSingleProject.bind(this, project)}
                   isCorrectUser={currentUser === project.user}
                   removeProject={removeProject.bind(
                     this,

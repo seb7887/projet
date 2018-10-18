@@ -149,6 +149,7 @@ class ProjectCard extends React.Component {
   };
 
   render() {
+    const { project } = this.props;
     return (
       <div>
         <Nav>
@@ -187,33 +188,16 @@ class ProjectCard extends React.Component {
               delete_outline
             </Icon>
           </Panel>
-          <Name>Name</Name>
+          <Name>{this.props.project.name}</Name>
           <Content>
             <p>
-              <strong>Idea:</strong> blabla blablablabal
+              <strong>Idea:</strong> {project.idea}
             </p>
             <p>
-              <strong>Features:</strong>
-              Lorem ipsum dolor sit amet, brute mediocritatem no ius, ei sit
-              dictas alienum. Eripuit volumus intellegam mel ea. Has ut dicta
-              molestiae honestatis. Qui facer congue ei, mei no dissentiet
-              comprehensam. Vero altera ei cum. Sed equidem indoctum ut, id quis
-              consul legimus quo, duo quod mazim persius ei. Alia viderer
-              ancillae ut mea, mel cu amet qualisque erroribus. Insolens
-              voluptaria necessitatibus in mea, ne usu animal utamur vituperata.
-              Te mea liber possit, nihil everti at est, possit oporteat ut mei.
-              Eos scripta dolores disputationi eu, an stet commodo habemus sea,
-              luptatum forensibus te nec. Per meis graeci suscipiantur et, sit
-              putant expetenda te. Ut eos timeam equidem. Ut vel mutat facilis,
-              mel quidam concludaturque ea, sed in labores democritum
-              sadipscing. Eu est appareat indoctum, vel utamur legendos ad.
-              Oratio nostro ceteros ne mei. Ius cu phaedrum liberavisse
-              consectetuer, in wisi iuvaret aliquam eos, quo quas gloriatur ex.
-              Legimus disputationi per ad. Munere periculis ad sea, ad exerci
-              integre evertitur sit. Simul tritani albucius id vix, nostro
-              vivendo vel ex. Cu quo reque rationibus, nonumy mucius equidem cum
-              ex, at laudem expetenda cotidieque sit. Clita feugait no est, ea
-              purto scribentur vim, solum nemore detracto ex sed.
+              <strong>Features:</strong> {project.features}
+            </p>
+            <p>
+              <strong>Topics:</strong> {project.keywords.join(' ')}
             </p>
           </Content>
         </Container>

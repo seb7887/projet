@@ -37,6 +37,10 @@ class Home extends React.Component {
     });
   };
 
+  getSingleProject = (project) => {
+    this.props.getSingleProject(project);
+  }
+
   filteredProjects = () => {
     if (this.state.searchField.length > 0) {
       return this.props.projects.filter(project => {
@@ -55,7 +59,10 @@ class Home extends React.Component {
         />
         <SideSheet open={this.state.left} toggleDrawer={this.toggleDrawer} />
         <ErrorBoundry>
-          <ProjectList projects={this.filteredProjects()} />
+          <ProjectList 
+            projects={this.filteredProjects()}
+            getSingleProject={this.getSingleProject}
+          />
         </ErrorBoundry>
       </div>
     );
