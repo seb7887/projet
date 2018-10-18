@@ -79,14 +79,14 @@ const Icon = styled.i`
  */
 
 const Project = props => {
-  const { name, idea, features, keywords, removeProject, isCorrectUser, getSingleProject } = props;
+  const { project, removeProject, isCorrectUser, getSingleProject } = props;
   return (
-    <StyledCard onClick={() => getSingleProject({ name, idea, features, keywords }) }>
+    <StyledCard onClick={() => getSingleProject({ project }) }>
       <Content>
         <Title gutterBottom variant="headline" component="h2">
-          {name}
+          {project.name}
         </Title>
-        <Description component="p">{idea}</Description>
+        <Description component="p">{project.idea}</Description>
       </Content>
       <Actions>
         {isCorrectUser && (

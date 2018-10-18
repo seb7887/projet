@@ -75,6 +75,7 @@ class Main extends React.Component {
             render={props => {
               return (
                 <ProjectCard
+                  isCorrectUser={currentUser.user.id == this.state.project.user}
                   project={this.state.project}
                   {...props}
                 />

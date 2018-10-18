@@ -150,7 +150,7 @@ class ProjectCard extends React.Component {
   };
 
   render() {
-    const { project } = this.props;
+    const { project, isCorrectUser } = this.props;
     return (
       <div>
         <Nav>
@@ -166,9 +166,11 @@ class ProjectCard extends React.Component {
             >
               {this.state.done ? "bookmark" : "bookmark_border"}
             </Icon>
-            <Icon className="material-icons" color={colorBase} margin="0">
-              delete_outline
-            </Icon>
+            { isCorrectUser &&
+              <Icon className="material-icons" color={colorBase} margin="0">
+                delete_outline
+              </Icon>
+            }
           </NavPanel>
         </Nav>
         <Container>
@@ -181,13 +183,15 @@ class ProjectCard extends React.Component {
             >
               {this.state.done ? "bookmark" : "bookmark_border"}
             </Icon>
-            <Icon
-              className="material-icons"
-              color={colorDelete}
-              margin={marginPanel}
-            >
-              delete_outline
-            </Icon>
+            { isCorrectUser &&
+              <Icon
+                className="material-icons"
+                color={colorDelete}
+                margin={marginPanel}
+              >
+                delete_outline
+              </Icon>
+            }
           </Panel>
           <Name>{this.props.project.name}</Name>
           <Content>

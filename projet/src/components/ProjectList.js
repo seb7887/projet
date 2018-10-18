@@ -62,10 +62,7 @@ class ProjectList extends React.Component {
               <StyledLink to={path}>
                 <Project
                   key={project._id}
-                  name={project.name}
-                  idea={project.idea}
-                  features={project.features}
-                  keywords={project.keywords}
+                  project={project}
                   getSingleProject={getSingleProject.bind(this, project)}
                   isCorrectUser={currentUser === project.user}
                   removeProject={removeProject.bind(
