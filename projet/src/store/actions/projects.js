@@ -1,6 +1,7 @@
 import { apiCall } from "../../api/api";
 import { addError } from "./errors";
 import { LOAD_PROJECTS, REMOVE_PROJECT } from "../actionTypes";
+import { setCurrentUser } from "./auth";
 
 export const loadProjects = projects => ({
   type: LOAD_PROJECTS,
@@ -19,6 +20,17 @@ export const removeProject = (user_id, project_id) => {
       `http://localhost:8081/api/projects/user/${user_id}/project/${project_id}`
     )
       .then(() => dispatch(remove(project_id)))
+      .catch(err => addError(err.message));
+  };
+};
+
+export const markProject = (user_id, project_id, mark) => {
+  return dispatch => {
+    return apiCall(
+      "put",
+      `http://localhost:8081/api/projects/user/${user_id}/project/${project_id}/${mark}`
+    )
+      .then(user => dispatch(setCurrentUser(user)))
       .catch(err => addError(err.message));
   };
 };

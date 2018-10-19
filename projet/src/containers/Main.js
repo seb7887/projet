@@ -2,6 +2,7 @@ import React from "react";
 import { Switch, Route, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { authUser } from "../store/actions/auth";
+import { markProject } from "../store/actions/projects";
 import { removeError } from "../store/actions/errors";
 import withAuth from "../hocs/withAuth";
 
@@ -80,6 +81,7 @@ class Main extends React.Component {
               return (
                 <ProjectCard
                   project={this.state.project}
+                  markProject={markProject}
                   {...props}
                 />
               );
@@ -106,6 +108,6 @@ const mapStateToProps = state => {
 export default withRouter(
   connect(
     mapStateToProps,
-    { authUser, removeError }
+    { authUser, removeError, markProject }
   )(Main)
 );

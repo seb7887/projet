@@ -136,6 +136,9 @@ const Content = styled.div`
  * Component
  */
 
+const markDone = 'done';
+const markUndone = 'undone';
+
 class ProjectCard extends React.Component {
   constructor(props) {
     super(props);
@@ -146,6 +149,12 @@ class ProjectCard extends React.Component {
 
   handleDone = () => {
     this.setState({ done: !this.state.done });
+    if (this.state.done === false) {
+      this.props.markProject(this.props.project.user, this.props.project._id, markDone);
+
+    } else {
+      this.props.markProject(this.props.project.user, this.props.project._id, markUndone);
+    }
   };
 
   render() {
