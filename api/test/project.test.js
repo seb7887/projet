@@ -153,6 +153,71 @@ describe('Routes: Projects', () => {
     })
   })
 
+  describe('Update', () => {
+    it('should mark done a project for an user', (done) => {
+      request(app)
+        .post('/api/auth/signin')
+        .send(users[1])
+        .expect(200)
+        .end((err, res) => {
+          expect(res.body).to.have.property('token');
+          token = res.body.token;
+          userID = res.body.user._id;
+          request(app)
+            .put(`/api/projects/user/${userID}/project/${projectID}/done`)
+            .set('Authorization', `Bearer ${token}`)
+            .expect(200)
+            .end((err, res) => {
+              expect(res.body).to.have.property('done');
+              expect(res.body.done).to.deep.include(projectID);
+              done(err);
+            })
+          })
+    })
+
+    it('should not mark done a project which it has been already marked as done', (done) => {
+      request(app)
+        .post('/api/auth/signin')
+        .send(users[1])
+        .expect(200)
+        .end((err, res) => {
+          expect(res.body).to.have.property('token');
+          token = res.body.token;
+          userID = res.body.user._id;
+          request(app)
+            .put(`/api/projects/user/${userID}/project/${projectID}/done`)
+            .set('Authorization', `Bearer ${token}`)
+            .expect(400)
+            .end((err, res) => {
+              expect(res.body).to.have.property('error');
+              expect(res.body.error.message).to.deep.equal('Cannot mark as done');
+              done(err);
+            })
+          })
+    })
+
+    it('should mark undone a project which it has been already marked as done', (done) => {
+      request(app)
+        .post('/api/auth/signin')
+        .send(users[1])
+        .expect(200)
+        .end((err, res) => {
+          expect(res.body).to.have.property('token');
+          token = res.body.token;
+          userID = res.body.user._id;
+          request(app)
+            .put(`/api/projects/user/${userID}/project/${projectID}/undone`)
+            .set('Authorization', `Bearer ${token}`)
+            .expect(200)
+            .end((err, res) => {
+              expect(res.body).to.have.property('done');
+              expect(res.body.done).to.deep.not.include(projectID);
+              done(err);
+            })
+          })
+    })
+  })
+
   describe('Delete', () => {
     it('should not delete a project if token not match with user id', (done) => {
       request(app)

@@ -96,6 +96,7 @@ class ProfileIcon extends React.Component {
           <MenuItem onClick={this.handleClose}>
             <StyledLink to="/project/new">New idea</StyledLink>
           </MenuItem>
+          <MenuItem onClick={this.props.randomProject}>Get an Idea!</MenuItem>
           <MenuItem onClick={this.logout}>Sign out</MenuItem>
         </Menu>
       </Div>

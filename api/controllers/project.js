@@ -38,8 +38,33 @@ const deleteProject = async (req, res, next) => {
   }
 }
 
+const doneProject = async (req, res, next) => {
+  try {
+    const foundUser = await db.User.findById(req.params.user_id);
+    if (req.params.done === 'done') {
+      if (foundUser.done.indexOf(req.params.project_id) > -1) {
+        return next({ status: 400, message: 'Cannot mark as done'});
+      }
+      foundUser.done.push(req.params.project_id);
+    } else {
+      let index = foundUser.done.indexOf(req.params.project_id);
+      if (index > -1) {
+        foundUser.done.splice(index, 1);
+      } else {
+        return next({ status: 400, message: 'Cannot mark as undone'});
+      }
+    }
+    // const updatedUser = await db.User.findByIdAndUpdate(req.params.user_id, foundUser);
+    await foundUser.save();
+    return res.status(200).json(foundUser);
+  } catch (err) {
+    return next({ status: 400, message: 'Cannot mark as done/undone' });
+  }
+}
+
 module.exports = {
   getProjects: getProjects,
   createProject: createProject,
   deleteProject: deleteProject,
+  doneProject: doneProject,
 }
