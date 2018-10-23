@@ -9,6 +9,8 @@ import Main from "./Main";
 
 const store = configStore();
 
+const baseURL = process.env.REACT_APP_ENV === 'production' ? 'projet' : '';
+
 if (localStorage.jwtToken) {
   setAuthToken(localStorage.jwtToken);
   try {
@@ -20,7 +22,7 @@ if (localStorage.jwtToken) {
 
 const App = () => (
   <Provider store={store}>
-    <Router>
+    <Router basename={baseURL}>
       <Main />
     </Router>
   </Provider>

@@ -22,7 +22,7 @@ export const logout = () => {
 
 export const authUser = (type, userData) => dispatch => {
   return new Promise((resolve, reject) => {
-    return apiCall("post", `http://localhost:8081/api/auth/${type}`, userData)
+    return apiCall("post", `${process.env.REACT_APP_API}/api/auth/${type}`, userData)
       .then(({ token, ...user }) => {
         localStorage.setItem("jwtToken", token);
         setAuthToken(token);
